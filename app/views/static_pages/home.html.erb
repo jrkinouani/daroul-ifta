@@ -1,5 +1,17 @@
 
 <div class="container">
-<h1>Page d'accueil</h1>
+  <div class="container" id="show">
+    <div class="row">
+      <h3>Listes des question posées </h3>
+      <% @questions.each do |question| %>
+      <div class="col-md-8 col-md-8">
+
+          <%= question.content %>
+          <h2 class="title_show">dans la catégorie : <%= question.category %></h2>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
 
 </div>

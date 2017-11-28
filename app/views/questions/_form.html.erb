@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-lg-6 col-md-offset-3 col-md-6 col-sm-3 col-xs-12" id="zone_question" >
+
+  <%= form_for @question  do |f| %>
+    <div class="field">
+    <label><h3>Poser votre question</h3></label><br>
+      <%= f.text_area :content ,  :class => "form-control" , placeholder: "Quels sont les conditions de la prière ?"%>
+    </div>
+    <div class="field">
+    <label><h3>Choisissez une catégorie</h3></label><br>
+      <%= f.select :category, [["Hajj","Hajj"], ["Prière","Prière "]] ,:class => "form-control", id:"categorie", prompt:"Choisissez une catégorie" %>
+    </div>
+     <div class="field">
+    <label><h3>Indiquez votre email</h3></label><br />
+        <%= f.text_field :email,  :class => "form-control",placeholder: "mohammed@gmail.com"%>
+      </div><br /><br />
+
+      <div class="actions">
+        <%= f.submit "Envoyez votre question", :class =>  "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>
