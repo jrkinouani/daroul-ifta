@@ -1,8 +1,16 @@
 class QuestionsController < ApplicationController
 before_action :set_question, only: [:show]
-  def index
-    @questions = Question.all
+
+def index
+    @questions = Question.includes(:answer).all
+    render :index
   end
+
+  def show
+    @question = Question.includes(:answer).find(params[:id])
+    render :show
+  end
+
 
   def new
     @question = Question.new
@@ -17,8 +25,6 @@ before_action :set_question, only: [:show]
     end
   end
 
-  def show
-  end
   private
 
   def set_question
