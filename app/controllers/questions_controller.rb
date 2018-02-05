@@ -1,7 +1,9 @@
 class QuestionsController < ApplicationController
-before_action :set_question, only: [:show]
+  before_action :set_question, only: [:show]
   def index
     @questions = Question.all
+    category = Category.where(name: params[:category]).first
+    @question = @question.where(category_id: category.id) if category
   end
 
   def new
@@ -18,14 +20,15 @@ before_action :set_question, only: [:show]
   end
 
   def show
+    @answer = Answer.new(question_id: @question.id, admin_id: current_admin.id) if admin_signed_in?
   end
   private
 
   def set_question
-    @questions = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def question_params
-    params.require(:question).permit(:content, :category, :email)
+    params.require(:question).permit(:content, :category_id, :email)
   end
 end
