@@ -7,7 +7,7 @@
    </div>
    <div class="field">
     <label><h3>Choisissez une catégorie</h3></label><br>
-      <%= f.select :category, [["Hajj","Hajj"], ["Prière","Prière "]] ,:class => "form-control", id:"categorie", prompt:"Choisissez une catégorie" %>
+      <%= f.select :category_id, Category.all.pluck(:name, :id) ,:class => "form-control", id:"categorie", prompt:"Choisissez une catégorie" %>
    </div>
    <div class="field">
     <label><h3>Indiquez votre email</h3></label><br />

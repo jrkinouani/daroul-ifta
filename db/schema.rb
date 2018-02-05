@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203130748) do
+ActiveRecord::Schema.define(version: 20180205125811) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,16 +32,36 @@ ActiveRecord::Schema.define(version: 20171203130748) do
   create_table "answers", force: :cascade do |t|
     t.string "content"
     t.integer "question_id"
+    t.integer "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "nb_validation", default: 0
+    t.index ["admin_id"], name: "index_answers_on_admin_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
     t.text "content"
-    t.string "category"
+    t.integer "category_id"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_questions_on_category_id"
+  end
+
+  create_table "validations", force: :cascade do |t|
+    t.integer "answer_id"
+    t.integer "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_validations_on_admin_id"
+    t.index ["answer_id"], name: "index_validations_on_answer_id"
   end
 
 end
