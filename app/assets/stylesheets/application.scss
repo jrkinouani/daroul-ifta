@@ -33,3 +33,75 @@ img.navbar-brand.navbar-brand-centered
   height: 100px;
   width: 100px;
 }
+/*page home */
+.bd-masthead
+{
+    padding-bottom: 40px;
+    background-color: #f7f7f7;
+}
+#home.row
+{
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#zone_hadith
+{
+  border-style: solid;
+  border-width: 3px;
+  margin-bottom: 3px;
+
+}
+#zone_info
+{
+  border-style: solid;
+  border-width: 3px;
+
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid red;
+}
+
+.input-group .form-control
+{
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  height: 50px;
+  border-color: #337ab7;
+}
+.input-group-addon:last-child {
+    border-left: 0;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.container.marketing
+{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.rounded-circle {
+    border-radius: 50%!important;
+}
+.index-link
+{
+    margin-top: 40px;
+    background-color:#337ab7;
+    height: 150px;
+}
+a.link_footer
+{
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+}
+.copy-c
+{
+  font-size: 23px;
+  background-color:#337ab7;
+}
