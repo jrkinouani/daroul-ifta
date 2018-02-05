@@ -16,9 +16,9 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
 		      <ul class="nav navbar-nav">
-		        <li><a href="#">Accueil</a></li>
-		        <li><a href="#">Qui sommes nous ?</a></li>
-		        <li><a href="#">FAQ</a></li>
+		        <li><%= link_to 'Accueil', root_path %></li>
+		        <li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
+		        <li><%= link_to 'Faq ?', faq_path%></li>
 		      </ul>
 
 		      <ul class="nav navbar-nav navbar-right">
@@ -26,7 +26,7 @@
 			      	<li> <%= button_to "Log out", destroy_admin_session_path, class: "btn btn-danger navbar-btn", :method => :delete  %>  </li>
 			        <li> <%= button_to "Adimin", rails_admin_path, class: "btn btn-default navbar-btn", :method => :get  %></li>
 		        <% end %>
-		        <li> <%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn", :method => :get  %></li>
+		        <li> <%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
 		      </ul>
 
 		    </div><!-- /.navbar-collapse -->
