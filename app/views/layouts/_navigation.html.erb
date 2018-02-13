@@ -23,10 +23,10 @@
 
 		      <ul class="nav navbar-nav navbar-right">
 		      	<% if admin_signed_in? %>
-			      	<li> <%= button_to "Log out", destroy_admin_session_path, class: "btn btn-danger navbar-btn", :method => :delete  %>  </li>
-			        <li> <%= button_to "Adimin", rails_admin_path, class: "btn btn-default navbar-btn", :method => :get  %></li>
+			      	<li> <%= button_to "Déconnexion", destroy_admin_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
+			        <li> <%= button_to "Zone admin", rails_admin_path, class: "btn btn-default navbar-btn btn-lg", :method => :get  %></li>
 		        <% end %>
-		        <li> <%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
+		        <li> <%= button_to "Poser une question ?", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
 		      </ul>
 
 		    </div><!-- /.navbar-collapse -->
