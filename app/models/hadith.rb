@@ -1,0 +1,2 @@
+class Hadith < ApplicationRecord
+end
