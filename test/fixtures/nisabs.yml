@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  mois: MyString
+  price_or: 1
+  price_silver: 1
+  zakat_fatimi: 1
+  zakat_fidiyah: 1
+  nisab_zakat: 1
+
+two:
+  title: MyString
+  mois: MyString
+  price_or: 1
+  price_silver: 1
+  zakat_fatimi: 1
+  zakat_fidiyah: 1
+  nisab_zakat: 1
