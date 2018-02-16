@@ -1,0 +1,2 @@
+class Nisab < ApplicationRecord
+end

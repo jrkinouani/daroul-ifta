@@ -18,7 +18,9 @@
   </div>
 
 
-<div class="row" id="home">
+
+
+<!--<div class="row" id="home">
   <div class="col-sm-6 col-sm-offset-3">
     <div id="imaginary_container">
       <div class="input-group stylish-input-group">
@@ -31,33 +33,22 @@
       </div>
     </div>
 	</div>
-</div>
+</div>-->
 
 <div class="container marketing">
 
   <!-- Three columns of text below the carousel -->
   <div class="row">
-    <div class="text-center">
-    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140" placeholder="titre">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+      <% @nisabs.each do |nisab| %>
 
+
+         <h2 class="title_show"> <%= nisab.title %></h2>
+
+      <% end %>
     </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-    </div><!-- /.col-lg-4 -->
-  </div>
+
+
   </div><!-- /.row -->
 
 </main>
