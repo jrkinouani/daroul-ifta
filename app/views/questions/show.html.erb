@@ -1,0 +1,24 @@
+<h1>Question #<%= @question.id %></h1>
+<h4><%= @question.content %></h4>
+<% @question.answers.each do | answer | %>
+  <div>
+    <% next if !answer.display? && !admin_signed_in? %>
+    <p><%= answer.content  %></p>
+    <% if admin_signed_in? %>
+      <% if answer.admin_id != current_admin.id%>
+        <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post %>
+      <% end %>
+      <p>Nombre de validation <%= answer.validations.count %> </p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if admin_signed_in? %>
+  <p>Répondre </p>
+  <%= form_for @answer do | f | %>
+    <%= f.text_field :content  %>
+    <%= f.hidden_field :admin_id %>
+    <%= f.hidden_field :question_id %>
+    <%= f.submit "valider" %>
+  <% end %>
+<% end %>
