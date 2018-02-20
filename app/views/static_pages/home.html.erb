@@ -1,21 +1,43 @@
 <main class="bd-masthead" id="content" role="main">
 <div class="container-fluid">
   <div class="row" id="home">
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="zone_hadith">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
       <h3 >Hadith du jour</h3>
       <hr>
       <% @hadiths.each  do |hadith|  %>
       <h4><%= hadith.hadith %></h4>
       <% end %>
+      <hr>
+      <% @nisabs.each do |nisab| %>
+         <h2 class="title_show"> <%= nisab.title %></h2>
+         <h2 class="title_show"> <%= nisab.mois %> €</h2>
+         <h2 class="title_show"> <%= nisab.price_or %> €</h2>
+         <h2 class="title_show"> <%= nisab.price_silver %> €</h2>
+         <h2 class="title_show"> <%= nisab.zakat_fatimi %> €</h2>
+         <h2 class="title_show"> <%= nisab.zakat_fidiyah %> €</h2>
+         <h2 class="title_show"> <%= nisab.nisab_zakat %> €</h2>
+
+      <% end %>
+
     </div>
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="zone_info">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">
       <h3 >Comment poser une question ?</h3>
       <hr>
         <% @Informations.each do |information| %>
       <h4> <%= information.content %></h4>
       <% end %>
     </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
+          <h3 >Liste des catégories</h3>
+          <hr>
+          <% Category.all.each do |category| %>
+           <li><%= link_to category.name,category_path(category: category.name) %></li>
+          <% end%>
+      </div>
+
   </div>
+
 
 
 
@@ -34,23 +56,6 @@
     </div>
 	</div>
 </div>-->
-
-<div class="container marketing">
-
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
-      <% @nisabs.each do |nisab| %>
-
-
-         <h2 class="title_show"> <%= nisab.title %></h2>
-
-      <% end %>
-    </div>
-
-
-  </div><!-- /.row -->
-
 </main>
 <div class="container">
  <div class="container" id="show">

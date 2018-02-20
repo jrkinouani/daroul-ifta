@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
     @hadiths = Hadith.all
     @Informations = Information.all
     @nisabs = Nisab.all
+    @categorys = Category.all
   end
 
   def apropos
