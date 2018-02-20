@@ -4,23 +4,19 @@
     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="zone_hadith">
       <h3 >Hadith du jour</h3>
       <hr>
-      <% @hadiths.each  do |hadith|  %>
-      <h4><%= hadith.hadith %></h4>
-      <% end %>
+      <h4>D'après Mou'adh Ibn Jabal (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit: « Celui qui rencontrera Allah sans Lui associer quoi que ce soit, en ayant prié les cinq prières (1) et en ayant jeûné le Ramadan, il lui sera pardonné ».
+J'ai dit: Ne dois-je pas annoncer cette bonne nouvelle aux gens ô Messager d'Allah?
+Le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit: « Laisse les oeuvrer (2) ».</h4>
     </div>
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="zone_info">
-      <h3 >Comment poser une question ?</h3>
+      <h3 >Informations pour poser une question</h3>
       <hr>
-        <% @Informations.each do |information| %>
-      <h4> <%= information.content %></h4>
-      <% end %>
+      <h4>La question ouverte sert à obtenir une information nouvelle. Donc, on utilise un mot interrogatif comme qui (à qui, de qui, avec qui... ), que, quoi   (à quoi, de quoi, avec quoi...), où, comment, pourquoi, combien, à quelle heure etc. La réponse contient donc une information nouvelle qui n'est pas dans la question. Les 3 structures des questions fermées sont valables aussi pour les questions ouvertes.</h4>
     </div>
   </div>
 
 
-
-
-<!--<div class="row" id="home">
+<div class="row" id="home">
   <div class="col-sm-6 col-sm-offset-3">
     <div id="imaginary_container">
       <div class="input-group stylish-input-group">
@@ -33,22 +29,33 @@
       </div>
     </div>
 	</div>
-</div>-->
+</div>
 
 <div class="container marketing">
 
   <!-- Three columns of text below the carousel -->
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
-      <% @nisabs.each do |nisab| %>
+    <div class="text-center">
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140" placeholder="titre">
 
-
-         <h2 class="title_show"> <%= nisab.title %></h2>
-
-      <% end %>
     </div>
-
-
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+    </div><!-- /.col-lg-4 -->
+  </div>
   </div><!-- /.row -->
 
 </main>
