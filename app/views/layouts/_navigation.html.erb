@@ -17,11 +17,13 @@
 		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
 		      <ul class="nav navbar-nav">
 		        <li><%= link_to 'Accueil', root_path %></li>
-		        <li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
-		        <li><%= link_to 'Faq ?', faq_path%></li>
+		        <!--<li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
+		        <li><%= link_to 'Faq ?', faq_path%></li>-->
+            
 		      </ul>
 
 		      <ul class="nav navbar-nav navbar-right">
+
 		      	<% if admin_signed_in? %>
 			      	<li> <%= button_to "Déconnexion", destroy_admin_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
 			        <li> <%= button_to "Zone admin", rails_admin_path, class: "btn btn-default navbar-btn btn-lg", :method => :get  %></li>
@@ -29,6 +31,8 @@
 		        <li> <%= button_to "Poser une question ?", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
 		      </ul>
 
+
+
 		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+		  </div><!-- /.container-fluid
+		</nav>-->

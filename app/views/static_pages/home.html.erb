@@ -1,7 +1,7 @@
 <main class="bd-masthead" id="content" role="main">
 <div class="container-fluid">
   <div class="row" id="home">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id="zone_hadith">
       <h3 >Hadith du jour</h3>
       <hr>
       <% @hadiths.each  do |hadith|  %>
@@ -20,7 +20,10 @@
       <% end %>
 
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12" id="zone_info">
+
+
+
       <h3 >Comment poser une question ?</h3>
       <hr>
         <% @Informations.each do |information| %>
@@ -28,11 +31,11 @@
       <% end %>
     </div>
 
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
+      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id="zone_hadith">
           <h3 >Liste des catégories</h3>
           <hr>
           <% Category.all.each do |category| %>
-           <li><%= link_to category.name,category_path(category: category.name) %></li>
+           <li class="category"><%= link_to category.name,category_path(category: category.name), :class=> "link_category" %></li>
           <% end%>
       </div>
 
@@ -65,7 +68,7 @@
     <% @questions.each do |question| %>
 
        <%= question.content %>
-       <h2 class="title_show">dans la catégorie : <%= question.category.name %></h2>
+
 
     <% end %>
     </div>

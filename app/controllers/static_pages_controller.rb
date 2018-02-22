@@ -5,6 +5,8 @@ class StaticPagesController < ApplicationController
     @Informations = Information.all
     @nisabs = Nisab.all
     @categorys = Category.all
+    @answers = Answer.all
+
   end
 
   def apropos
