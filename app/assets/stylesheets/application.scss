@@ -13,7 +13,7 @@ ul.nav.navbar-nav
 
 
 
-@media screen and (min-width:768px){
+/*@media screen and (min-width:768px){
     .navbar-brand-centered {
         position: absolute;
         left: 50%;
@@ -26,12 +26,16 @@ ul.nav.navbar-nav
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -80px;
     }
-}
+*/
 img.navbar-brand.navbar-brand-centered
 {
   margin-top: 5px;
   height: 100px;
   width: 100px;
+}
+.link-category
+{
+  list-style-type: none;
 }
 /*page home */
 .bd-masthead
@@ -104,4 +108,8 @@ a.link_footer
 .btn.btn-danger.navbar-btn.btn-lg, .btn.btn-default.navbar-btn.btn-lg
 {
   margin-right: 10px;
+}
+h4.answer_content
+{
+    font-weight: 300;
 }
