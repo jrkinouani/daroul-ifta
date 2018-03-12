@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show]
+  before_action :set_question, only: [:show, :update, :delete_subcategories, :delete_keywords]
   def index
     @questions = Question.all
     category = Category.where(name: params[:category]).first
@@ -13,15 +13,46 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to @question, notice: "Votre question a été validé"
+      redirect_to @question, notice: 'Votre question a été validé'
     else
-      render "new"
+      render 'new'
     end
   end
 
-  def show
-    @answer = Answer.new(question_id: @question.id, admin_id: current_admin.id) if admin_signed_in?
+  def update
+    subcategory_ids = @question.subcategories.ids
+    keyword_ids = @question.keywords.ids
+    new_subcategory = []
+    new_keywords = []
+    question_params[:subcategories_attributes].each do |id, subcat |
+      new_subcategory << subcat[:id].to_i
+      subcat[:keywords_attributes].each do |key, keyword|
+        new_keywords << keyword[:id]
+      end
+    end
+    new_subcategory = new_subcategory - subcategory_ids
+    new_keywords = new_keywords - keyword_ids
+    @question.keywords << Keyword.where(id: new_keywords)
+    @question.subcategories << Subcategory.where(id: new_subcategory)
+    redirect_to @question
   end
+
+  def show
+    return unless admin_signed_in?
+    @answer = Answer.new(question_id: @question.id, admin_id: current_admin.id)
+    @category = @question.category
+  end
+
+  def delete_subcategories
+    @question.subcategories.delete(params[:subcategory_id])
+    redirect_to @question
+  end
+
+  def delete_keywords
+    @question.keywords.delete(params[:keyword_id])
+    redirect_to @question
+  end
+
   private
 
   def set_question
@@ -29,6 +60,18 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:content, :category_id, :email)
+    params.require(:question).permit(
+      :content,
+      :category_id,
+      :email,
+      subcategories_attributes: [
+        :id,
+        :_destroy,
+        keywords_attributes: [
+          :id,
+          :_destroy
+        ]
+      ]
+    )
   end
 end

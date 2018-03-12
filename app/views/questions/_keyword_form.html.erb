@@ -1,0 +1,4 @@
+  <%= form_for @keyword do | f | %>
+    <%= f.label :name %>
+    <%= f.collection_select :category_id, @subcategory., :id, :name, include_blank: true %>
+  <% end %>
