@@ -9,7 +9,8 @@
       <% end %>
       <hr>
       <% @nisabs.each do |nisab| %>
-         <h2 class="title_show"> <%= nisab.title %></h2>
+
+        <h2 class="title_show"> <%= nisab.title %></h2>
          <h2 class="title_show"> <%= nisab.mois %> €</h2>
          <h2 class="title_show"> <%= nisab.price_or %> €</h2>
          <h2 class="title_show"> <%= nisab.price_silver %> €</h2>
@@ -21,10 +22,13 @@
 
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">
-      <h3 >Comment poser une question ?</h3>
+      <h3 >Dernières questions posée</h3>
       <hr>
-        <% @Informations.each do |information| %>
-      <h4> <%= information.content %></h4>
+      <% Question.with_validates_answers.last(5).each do |question| %>
+          <h4 class="question_content"><%= question.content %></h4>
+        <% question.validate_answers.each do |answer| %>
+        <h4 class="answer_content"><%= answer.content %></h4>
+        <% end %>
       <% end %>
     </div>
 
@@ -32,7 +36,7 @@
           <h3 >Liste des catégories</h3>
           <hr>
           <% Category.all.each do |category| %>
-           <li><%= link_to category.name,category_path(category: category.name) %></li>
+           <li class="link-category"><%= link_to category.name,category_path(category: category.name) %></li>
           <% end%>
       </div>
 
@@ -61,13 +65,11 @@
  <div class="container" id="show">
   <div class="row">
     <div class="col-md-8 col-md-8">
-    <h3>Listes des question posées </h3>
-    <% @questions.each do |question| %>
 
-       <%= question.content %>
-       <h2 class="title_show">dans la catégorie : <%= question.category.name %></h2>
 
-    <% end %>
+    <% @Informations.each do |information| %>
+  <h4> <%= information.content %></h4>
+  <% end %>
     </div>
   </div>
  </div>

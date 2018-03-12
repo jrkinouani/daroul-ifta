@@ -8,6 +8,13 @@ class Question < ApplicationRecord
   has_many :question_keywords, dependent: :destroy
   has_many :keywords, through: :question_keywords
   belongs_to :category
-
   accepts_nested_attributes_for :subcategories, allow_destroy: true
+
+  def validate_answers
+    answers.select(&:display?)
+  end
+
+  def self.with_validates_answers
+    Question.joins(:answers).where("nb_validation >= 3 ")
+  end
 end
