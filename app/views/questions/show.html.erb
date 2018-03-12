@@ -1,24 +1,57 @@
-<h1>Question #<%= @question.id %></h1>
-<h4><%= @question.content %></h4>
-<% @question.answers.each do | answer | %>
-  <div>
-    <% next if !answer.display? && !admin_signed_in? %>
-    <p><%= answer.content  %></p>
-    <% if admin_signed_in? %>
-      <% if answer.admin_id != current_admin.id%>
-        <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post %>
-      <% end %>
-      <p>Nombre de validation <%= answer.validations.count %> </p>
-    <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <h1 class="text-capitalize">Question #<%= @question.id %> : <%= @question.content %></h1>
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Reponses :</h3>
+      <% @question.answers.each do | answer | %>
+        <div>
+          <% next if !answer.display? && !admin_signed_in? %>
+          <div class="col-md-offset-2">
+            <p><%= answer.content  %></p>
+            <% if admin_signed_in? %>
+              <% if answer.admin_id != current_admin.id%>
+                <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post %>
+              <% end %>
+              <em>Nombre de validation <%= answer.validations.count %> </em>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if admin_signed_in? %>
+        <div>
+          <strong>Sous categorgies :</strong>
+          <% @question.subcategories.each do | subcategory| %>
+            <p><%= subcategory.name %></p>
+            <%= link_to 'Delete', subcategories_question_path(@question, subcategory_id: subcategory.id) ,method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+          <br>
+          <strong>Mot clé :</strong>
+          <% @question.keywords.each do | keyword| %>
+            <p><%= keyword.name %></p>
+            <%= link_to 'Delete', keywords_question_path(@question, keyword_id: keyword.id), method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+        </div>
+        <div class="forms">
+          <%= render 'category_form'  %>
+        </div>
 
-<% if admin_signed_in? %>
-  <p>Répondre </p>
-  <%= form_for @answer do | f | %>
-    <%= f.text_field :content  %>
-    <%= f.hidden_field :admin_id %>
-    <%= f.hidden_field :question_id %>
-    <%= f.submit "valider" %>
-  <% end %>
-<% end %>
+        <h3>Répondre à la Question  </h3>
+        <%= form_for @answer do | f | %>
+          <%= f.hidden_field :admin_id %>
+          <%= f.hidden_field :question_id %>
+          <div>
+            <%= f.text_area :content, cols: 100, rows: 5  %>
+          </div>
+          <br>
+          <div>
+            <%= f.submit "valider" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

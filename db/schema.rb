@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180209022339) do
+ActiveRecord::Schema.define(version: 20180311234943) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,6 +46,15 @@ ActiveRecord::Schema.define(version: 20180209022339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "category_questions", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_questions_on_category_id"
+    t.index ["question_id"], name: "index_category_questions_on_question_id"
+  end
+
   create_table "hadiths", force: :cascade do |t|
     t.string "hadith"
     t.datetime "created_at", null: false
@@ -57,6 +65,14 @@ ActiveRecord::Schema.define(version: 20180209022339) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.integer "subcategory_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subcategory_id"], name: "index_keywords_on_subcategory_id"
   end
 
   create_table "nisabs", force: :cascade do |t|
@@ -71,6 +87,24 @@ ActiveRecord::Schema.define(version: 20180209022339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_keywords", force: :cascade do |t|
+    t.integer "keyword_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["keyword_id"], name: "index_question_keywords_on_keyword_id"
+    t.index ["question_id"], name: "index_question_keywords_on_question_id"
+  end
+
+  create_table "question_subcategories", force: :cascade do |t|
+    t.integer "subcategory_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_subcategories_on_question_id"
+    t.index ["subcategory_id"], name: "index_question_subcategories_on_subcategory_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "content"
     t.integer "category_id"
@@ -78,6 +112,14 @@ ActiveRecord::Schema.define(version: 20180209022339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_questions_on_category_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "validations", force: :cascade do |t|

@@ -15,3 +15,34 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
+
+function add_fields(link, association, content, callback) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).parent().before(content.replace(regexp, new_id));
+  if (callback) {
+    keywords = $(link).closest(".fields").find(".keyword_fields select");
+    select_link = $(link).closest(".fields").find(".subcategory_select")[0]
+    select_cat(select_link)
+  }
+}
+
+function select_cat(link) {
+  keywords = $(link).closest(".fields").find(".keyword_fields select");
+
+  $.ajax({
+    method: "GET",
+    url: "/keywords",
+    data: { id: $(link).val() }
+  })
+  .done(function( msg ) {
+    for(i = 0; i < keywords.length; i++) {
+      $(keywords[i]).html( msg );
+     }
+  });
+}

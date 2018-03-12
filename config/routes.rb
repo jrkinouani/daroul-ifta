@@ -2,7 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :admins, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :questions
+  resources :questions do
+    member do
+      delete '/subcategories' => 'questions#delete_subcategories'
+      delete '/keywords' => 'questions#delete_keywords'
+    end
+  end
+  resources :keywords, only: [:index]
+  resources :category, only: [:update]
   resources :answers, only: [:create]
   resources :validations, only: [:create]
   root "static_pages#home"
