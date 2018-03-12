@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
   resources :keywords, only: [:index]
-  resources :category, only: [:update]
   resources :answers, only: [:create]
   resources :validations, only: [:create]
   root "static_pages#home"
