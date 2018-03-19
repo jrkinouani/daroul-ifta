@@ -26,8 +26,10 @@ class QuestionsController < ApplicationController
     new_keywords = []
     question_params[:subcategories_attributes].each do |id, subcat |
       new_subcategory << subcat[:id].to_i
-      subcat[:keywords_attributes].each do |key, keyword|
-        new_keywords << keyword[:id]
+      if subcat[:keywords_attributes]
+        subcat[:keywords_attributes].each do |key, keyword|
+          new_keywords << keyword[:id]
+        end
       end
     end
     new_subcategory = new_subcategory - subcategory_ids
