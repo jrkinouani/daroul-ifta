@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "/apropos" => "static_pages#apropos"
   get "/category" => "static_pages#category"
   get "/faq" => "static_pages#faq"
+  get "/search" => "static_pages#search"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
