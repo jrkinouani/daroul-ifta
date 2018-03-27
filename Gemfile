@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'devise'
 gem 'rails_admin', '~> 1.2'
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
