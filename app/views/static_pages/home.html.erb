@@ -5,18 +5,18 @@
       <h3 >Hadith du jour</h3>
       <hr>
       <% @hadiths.each  do |hadith|  %>
-      <h4><%= hadith.hadith %></h4>
+      <h4 class="hadith"><%= hadith.hadith %></h4>
       <% end %>
       <hr>
       <% @nisabs.each do |nisab| %>
 
         <h2 class="title_show"> <%= nisab.title %></h2>
-         <h2 class="title_show"> <%= nisab.mois %> €</h2>
-         <h2 class="title_show"> <%= nisab.price_or %> €</h2>
-         <h2 class="title_show"> <%= nisab.price_silver %> €</h2>
-         <h2 class="title_show"> <%= nisab.zakat_fatimi %> €</h2>
-         <h2 class="title_show"> <%= nisab.zakat_fidiyah %> €</h2>
-         <h2 class="title_show"> <%= nisab.nisab_zakat %> €</h2>
+         <h2 class="title_show"> Pour le mois de : <%= nisab.mois %> €</h2>
+         <h2 class="title_show"> Prix de l'or : <%= nisab.price_or %> €</h2>
+         <h2 class="title_show"> Prix de l'argent : <%= nisab.price_silver %> €</h2>
+         <h2 class="title_show"> Prix de la zakat fatimi : <%= nisab.zakat_fatimi %> €</h2>
+         <h2 class="title_show"> Prix de la zakat fidiyah :<%= nisab.zakat_fidiyah %> €</h2>
+         <h2 class="title_show"> Prix de la zakat : <%= nisab.nisab_zakat %> €</h2>
 
       <% end %>
 

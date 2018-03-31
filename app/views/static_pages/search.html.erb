@@ -3,7 +3,7 @@
       <div class="text-center">
         <h3 class="title_reunion">
           <% if @questions.blank? %>
-            <h3 >Désolé il n'y pas ce mot "<%= params[:search] %>"</br> </h3>
+            <h3 >Désolé il n'y a aucune question avec ce mot "<%= params[:search] %>"</br> </h3>
             <% else %>
               <h3 class="title_reunion">Voici toutes les questions et réponses avec le mots recherché :"<%= params[:search] %>"</br></h3>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">

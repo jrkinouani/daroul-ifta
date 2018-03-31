@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-right: 15px;
+}
 .navbar-default {
     background-color: #fff;
     border-color: #fff;
@@ -8,7 +14,11 @@
 
 ul.nav.navbar-nav
 {
-  padding-top: 30px;
+  padding-top: 0px;
+}
+li.link_subcategory
+{
+    margin-right: 30px;
 }
 img.navbar-brand.navbar-brand-centered
 {
@@ -110,4 +120,13 @@ a.link_footer
 h4.answer_content
 {
     font-weight: 300;
+}
+h4.hadith
+{
+    font-weight: normal;
+}
+h2.title_show
+{
+    font-size: 18px;
+    font-weight: normal;
 }

@@ -1,10 +1,10 @@
   <%= form_for @question do | f | %>
-    <p>Choix des sous category</p>
+    <p>Choix des sous categorie</p>
     <%= f.fields_for :subcategories, Subcategory.new do | subcategory_field | %>
       <%= render partial:'subcategory_fields', locals: { f: subcategory_field} %>
     <% end %>
-    <p><%= link_to_add_fields "Ajouter une sous catégory", f, :subcategories %></p>
+    <!--<p><%= link_to_add_fields "Ajouter une sous catégorie", f, :subcategories %></p>-->
     <div>
-     <%= f.submit "Valider" %>
+     <%= f.submit "Valider un mot clé" %>
     </div>
   <% end %>

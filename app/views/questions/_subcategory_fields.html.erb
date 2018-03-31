@@ -4,12 +4,12 @@
     <%= f.select :id, options_from_collection_for_select(@category.subcategories, 'id', 'name', @category.subcategories.first&.id), {include_blank: true},{ onchange: "select_cat(this)", class: 'subcategory_select'} %>
     <%= f.hidden_field(:_destroy) %>
     <%= link_to_remove_fields "remove", f %>
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10">
       <p>Mot clés</p>
       <% f.fields_for :keywords, @question.keywords  do | keyword_field | %>
         <%= render partial: 'keyword_fields', locals: { f: keyword_field } %>
       <% end %>
-      <p><%= link_to_add_fields "Ajouter un mot clé", f, :keywords, true %></p>
+      <p><%= link_to_add_fields "Ajouter un mot clé à cette question", f, :keywords, true %></p>
     </div>
   </div>
 </div>
