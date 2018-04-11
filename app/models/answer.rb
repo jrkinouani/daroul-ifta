@@ -4,6 +4,6 @@ class Answer < ApplicationRecord
   has_many :validations
 
   def display?
-    (nb_validation || validations.count) >= 3
+    nb_validation >= 3
   end
 end

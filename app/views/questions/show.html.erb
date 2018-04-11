@@ -13,7 +13,7 @@
           <div class="col-md-offset-2">
             <p><%= answer.content  %></p>
             <% if admin_signed_in? %>
-              <% if answer.admin_id != current_admin.id%>
+              <% if answer.admin_id != current_admin.id && !answer.display?%>
                 <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post %>
               <% end %>
               <em>Nombre de validation <%= answer.validations.count %> </em>
@@ -39,17 +39,19 @@
           <%= render 'category_form'  %>
         </div>
 
-        <h3>Répondre à la Question  </h3>
-        <%= form_for @answer do | f | %>
-          <%= f.hidden_field :admin_id %>
-          <%= f.hidden_field :question_id %>
-          <div>
-            <%= f.text_area :content, cols: 100, rows: 5  %>
-          </div>
-          <br>
-          <div>
-            <%= f.submit "valider" %>
-          </div>
+        <% unless @question.answers.pluck(:admin_id).include?(current_admin.id) %>
+          <h3>Répondre à la Question  </h3>
+          <%= form_for @answer do | f | %>
+            <%= f.hidden_field :admin_id %>
+            <%= f.hidden_field :question_id %>
+            <div>
+              <%= f.text_area :content, cols: 100, rows: 5  %>
+            </div>
+            <br>
+            <div>
+              <%= f.submit "valider" %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
