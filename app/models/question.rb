@@ -17,4 +17,9 @@ class Question < ApplicationRecord
   def self.with_validates_answers
     Question.joins(:answers).where("nb_validation >= 3 ")
   end
+
+  def self.search(search)
+     Question.with_validates_answers.where("questions.content LIKE ?", "%#{search}%")
+
+  end
 end
