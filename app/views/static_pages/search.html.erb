@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h3 class="title_reunion">
+          <% if @questions.blank? %>
+            <h3 >Désolé il n'y pas ce mot "<%= params[:search] %>"</br> </h3>
+            <% else %>
+              <h3 class="title_reunion">Voici toutes les questions et réponses avec le mots recherché :"<%= params[:search] %>"</br></h3>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">
+                <h3 >Dernières questions posée</h3>
+                <hr>
+                <% Question.with_validates_answers.each do |question| %>
+                    <h4 class="question_content"><%= question.content %></h4>
+                  <% question.validate_answers.each do |answer| %>
+                  <h4 class="answer_content"><%= answer.content %></h4>
+                  <% end %>
+                <% end %>
+              </div>
+          <% end %>
+
+      </div>
+    </div>
+
+</div>

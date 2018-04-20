@@ -10,28 +10,26 @@ ul.nav.navbar-nav
 {
   padding-top: 30px;
 }
-
-
-
-/*@media screen and (min-width:768px){
-    .navbar-brand-centered {
-        position: absolute;
-        left: 50%;
-        display: block;
-        width: 160px;
-        text-align: center;
-        background-color: #eee;
-    }
-    .navbar>.container .navbar-brand-centered,
-    .navbar>.container-fluid .navbar-brand-centered {
-        margin-left: -80px;
-    }
-*/
 img.navbar-brand.navbar-brand-centered
 {
   margin-top: 5px;
   height: 100px;
   width: 100px;
+}
+/*search */
+form.form-inline
+{
+    margin-top: 9px;
+    margin-right: 5px;
+}
+input.form-control.mr-sm-2
+{
+    height: 45px;
+    min-width: 300px;
+}
+.btn.btn-primary.my-2.my-sm-0
+{
+  height: 45px;
 }
 .link-category
 {
