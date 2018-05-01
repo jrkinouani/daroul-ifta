@@ -1,7 +1,8 @@
 <main class="bd-masthead" id="content" role="main">
 <div class="container-fluid">
   <div class="row" id="home">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
       <h3 >Hadith du jour</h3>
       <hr>
       <% @hadiths.each  do |hadith|  %>
@@ -9,7 +10,6 @@
       <% end %>
       <hr>
       <% @nisabs.each do |nisab| %>
-
         <h2 class="title_show"> <%= nisab.title %></h2>
          <h2 class="title_show"> <%= nisab.mois %> €</h2>
          <h2 class="title_show"> <%= nisab.price_or %> €</h2>
@@ -17,12 +17,13 @@
          <h2 class="title_show"> <%= nisab.zakat_fatimi %> €</h2>
          <h2 class="title_show"> <%= nisab.zakat_fidiyah %> €</h2>
          <h2 class="title_show"> <%= nisab.nisab_zakat %> €</h2>
-
       <% end %>
-
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">
-      <h3 >Dernières questions posée</h3>
+  </div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_info">
+        <h3 >Dernières questions posée</h3>
       <hr>
       <% Question.with_validates_answers.last(5).each do |question| %>
           <h4 class="question_content"><%= question.content %></h4>
@@ -30,7 +31,9 @@
         <h4 class="answer_content"><%= answer.content %></h4>
         <% end %>
       <% end %>
+      <hr class="entre">
     </div>
+  </div>
 
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
           <h3 >Liste des catégories</h3>

@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 .navbar-default {
-    background-color: #fff;
+    background-color: #f7f7f7;
     border-color: #fff;
 }
 
@@ -39,7 +39,7 @@ input.form-control.mr-sm-2
 .bd-masthead
 {
     padding-bottom: 40px;
-    background-color: #f7f7f7;
+    background-color: #fff;
 }
 #home.row
 {
@@ -50,13 +50,18 @@ input.form-control.mr-sm-2
 #zone_hadith
 {
   border-style: solid;
-  border-width: 3px;
   margin-bottom: 3px;
-  border-radius: 100% 100% 10% 10%;
+  border-radius: 3% 3% 3% 3%;
+  border: 1px solid #f7f7f7;
+  background-color: #f7f7f7;
 }
 #zone_info
 {
-
+  border-style: solid;
+  margin-bottom: 3px;
+  border-radius: 3% 3% 3% 3%;
+  border: 1px solid #f7f7f7;
+  background-color: #f7f7f7;
 
 }
 hr {
@@ -65,7 +70,13 @@ hr {
   border: 0;
   border-top: 1px solid red;
 }
-
+hr.entre
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid black;
+}
 .input-group .form-control
 {
   position: relative;
