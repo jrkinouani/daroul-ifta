@@ -1,16 +1,50 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4 text-center">
-      <h1 class="text-capitalize">Question #<%= @question.id %> : <%= @question.content %></h1>
-    </div>
+    <% if admin_signed_in? %>
+      <div class="col-md-8">
+        <div>
+          <h1 class="text-capitalize">Question #<%= @question.id %></h1>
+          <h3 class="text-capitalize"><%= @question.content %></h3>
+        </div>
+        <div>
+          <% unless @question.answers.pluck(:admin_id).include?(current_admin.id) %>
+            <h3>Répondre à la Question  </h3>
+            <%= form_for @answer do | f | %>
+              <%= f.hidden_field :admin_id %>
+              <%= f.hidden_field :question_id %>
+              <div>
+                <%= f.text_area :content, cols: 100, rows: 5  %>
+              </div>
+              <br>
+              <div>
+                <%= f.submit "valider" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <div class="forms">
+            <%= render 'category_form'  %>
+          </div>
+        </div>
+        <div id="subcategories">
+          <%= render partial: 'questions/subcategories', locals: {question: @question} %>
+        </div>
+      </div>
+      <!-- <div class="forms">
+        <%# render 'category_form'  %>
+      </div> -->
+    <% end %>
   </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6">
       <h3>Reponses :</h3>
       <% @question.answers.each do | answer | %>
         <div>
           <% next if !answer.display? && !admin_signed_in? %>
-          <div class="col-md-offset-2">
+          <div>
             <p><%= answer.content  %></p>
             <% if admin_signed_in? %>
               <% if answer.admin_id != current_admin.id && !answer.display?%>
@@ -20,39 +54,6 @@
             <% end %>
           </div>
         </div>
-      <% end %>
-      <% if admin_signed_in? %>
-        <div>
-          <strong>Sous categorgies :</strong>
-          <% @question.subcategories.each do | subcategory| %>
-            <p><%= subcategory.name %></p>
-            <%= link_to 'Delete', subcategories_question_path(@question, subcategory_id: subcategory.id) ,method: :delete, data: {confirm: "Are you sure?"} %>
-          <% end %>
-          <br>
-          <strong>Mot clé :</strong>
-          <% @question.keywords.each do | keyword| %>
-            <p><%= keyword.name %></p>
-            <%= link_to 'Delete', keywords_question_path(@question, keyword_id: keyword.id), method: :delete, data: {confirm: "Are you sure?"} %>
-          <% end %>
-        </div>
-        <div class="forms">
-          <%= render 'category_form'  %>
-        </div>
-
-        <% unless @question.answers.pluck(:admin_id).include?(current_admin.id) %>
-          <h3>Répondre à la Question  </h3>
-          <%= form_for @answer do | f | %>
-            <%= f.hidden_field :admin_id %>
-            <%= f.hidden_field :question_id %>
-            <div>
-              <%= f.text_area :content, cols: 100, rows: 5  %>
-            </div>
-            <br>
-            <div>
-              <%= f.submit "valider" %>
-            </div>
-          <% end %>
-        <% end %>
       <% end %>
     </div>
   </div>

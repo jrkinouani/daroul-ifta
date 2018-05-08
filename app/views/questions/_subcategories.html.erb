@@ -1,0 +1,16 @@
+<strong>Sous categorgies :</strong>
+<p>
+  <% question.subcategories.each do | subcategory| %>
+    <span class="badge badge-secondary"><%= subcategory.name %> <%= link_to 'X', subcategories_question_path(question, subcategory_id: subcategory.id) ,method: :delete, data: {confirm: "Are you sure?"}, class: 'delete-badge' %> </span>
+  <% end %>
+</p>
+<br>
+<strong>Mot clé :</strong>
+<p>
+  <% question.keywords.each do | keyword| %>
+    <span class="badge badge-secondary">
+      <%= keyword.name %>
+      <%= link_to 'X', keywords_question_path(question, keyword_id: keyword.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'delete-badge' %>
+    </span>
+  <% end %>
+</p>

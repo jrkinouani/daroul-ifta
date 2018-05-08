@@ -1,10 +1,7 @@
-  <%= form_for @question do | f | %>
-    <p>Choix des sous category</p>
-    <%= f.fields_for :subcategories, Subcategory.new do | subcategory_field | %>
-      <%= render partial:'subcategory_fields', locals: { f: subcategory_field} %>
-    <% end %>
-    <p><%= link_to_add_fields "Ajouter une sous catégory", f, :subcategories %></p>
-    <div>
-     <%= f.submit "Valider" %>
-    </div>
+<%= form_for @question, method: "POST", id: 'category-form' do | f | %>
+  <%= f.fields_for :subcategories, Subcategory.new do | subcategory_field | %>
+    <%= render partial:'subcategory_fields', locals: { f: subcategory_field} %>
   <% end %>
+  <%# link_to_add_fields "Ajouter une sous catégory", f, :subcategories %>
+  <%# f.submit "Valider" %>
+<% end %>

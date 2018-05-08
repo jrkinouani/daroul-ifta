@@ -29,6 +29,7 @@ function add_fields(link, association, content, callback) {
     keywords = $(link).closest(".fields").find(".keyword_fields select");
     select_link = $(link).closest(".fields").find(".subcategory_select")[0]
     select_cat(select_link)
+    $(link).hide();
   }
 }
 
@@ -46,3 +47,20 @@ function select_cat(link) {
      }
   });
 }
+
+function add_keyword(form_id, url) {
+  $.ajax({
+    method: "POST",
+    url: url,
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    data: $(form_id).serialize(),
+  })
+  .done(function( msg ) {
+    $("#subcategories").html(msg);
+  });
+}
+
+var ready = function() {
+}
+
+$(document).on('turbolinks:load', ready);

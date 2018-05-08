@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :questions do
     member do
+      post    '/add_subcategories' => 'questions#add_subcategories'
+      post    '/add_keywords' => 'questions#add_keywords'
       delete '/subcategories' => 'questions#delete_subcategories'
       delete '/keywords' => 'questions#delete_keywords'
     end

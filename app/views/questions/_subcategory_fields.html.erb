@@ -1,11 +1,11 @@
 <div class="fields">
-  <div class="col-md-12">
-    <%= f.label :name %>
+  <div>
+    <%= f.label 'Choisissez une sous category' %>
     <%= f.select :id, options_from_collection_for_select(@category.subcategories, 'id', 'name', @category.subcategories.first&.id), {include_blank: true},{ onchange: "select_cat(this)", class: 'subcategory_select'} %>
     <%= f.hidden_field(:_destroy) %>
-    <%= link_to_remove_fields "remove", f %>
-    <div class="col-md-10 col-md-offset-1">
-      <p>Mot clés</p>
+    <%# link_to_remove_fields "remove", f %>
+    <%= link_to 'Ajouter', "#", onclick: "add_keyword(\"#edit_question_#{@question.id}\", \"#{add_subcategories_question_path(@question)}\");return false" %>
+    <div>
       <% f.fields_for :keywords, @question.keywords  do | keyword_field | %>
         <%= render partial: 'keyword_fields', locals: { f: keyword_field } %>
       <% end %>
