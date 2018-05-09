@@ -1,6 +1,6 @@
 <div class="fields">
   <div>
-    <%= f.label 'Choisissez une sous category' %>
+    <%= f.label 'Choisissez une sous categorie' %>
     <%= f.select :id, options_from_collection_for_select(@category.subcategories, 'id', 'name', @category.subcategories.first&.id), {include_blank: true},{ onchange: "select_cat(this)", class: 'subcategory_select'} %>
     <%= f.hidden_field(:_destroy) %>
     <%# link_to_remove_fields "remove", f %>

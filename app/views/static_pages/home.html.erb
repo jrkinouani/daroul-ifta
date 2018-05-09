@@ -30,8 +30,11 @@
         <% question.validate_answers.each do |answer| %>
         <h4 class="answer_content"><%= answer.content %></h4>
         <% end %>
+        <span class="timestamp">
+          Répondu il y a  <%= time_ago_in_words(question.created_at) %>
+        </span>
+        <hr class="entre">
       <% end %>
-      <hr class="entre">
     </div>
   </div>
 
