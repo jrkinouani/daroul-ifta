@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'devise'
+gem 'rails-i18n'
 gem 'rails_admin', '~> 1.2'
 gem 'sendgrid-ruby'
 
