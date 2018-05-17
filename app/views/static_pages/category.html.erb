@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <% @questions.each do |question| %>
-      <h4 class="question_content"><%= link_to "#{question.content}", question_path(question)%></h4>
+      <h4 class="question_content"><%= link_to "#{question.content}",  alone_path(question)%></h4>
       <% question.validate_answers.each do |answer| %>
       <h4 class="answer_content"><%= answer.content %></h4>
       <% end %>

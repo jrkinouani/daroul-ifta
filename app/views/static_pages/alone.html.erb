@@ -11,6 +11,8 @@
     <p><%= answer.content  %></p>
     <% end %>
    </div>
+   <h3>Partagez sur : </h3>
+   <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>
   </div>
  </div>
 </div>
