@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :validations, only: [:create]
   root "static_pages#home"
 
+  get ':id/alone' => "static_pages#alone", as: :alone
   get "/apropos" => "static_pages#apropos"
   get "/category" => "static_pages#category"
   get "/faq" => "static_pages#faq"

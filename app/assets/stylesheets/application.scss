@@ -1,5 +1,9 @@
+/*= require social-share-button*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "social-share-button";
+
+
 
 .navbar-default {
     background-color: #f7f7f7;
@@ -128,4 +132,23 @@ h4.answer_content
   border-left: solid white 1px;
   margin-left: 5px;
   padding-left: 5px;
+}
+#zone_alone
+{
+    margin-top: 100px;
+    margin-bottom: 200px;
+    border-style: solid;
+
+    border-radius: 3% 3% 3% 3%;
+    border: 3px solid #f7f7f7;
+    background-color: #f7f7f7;
+}
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
 }

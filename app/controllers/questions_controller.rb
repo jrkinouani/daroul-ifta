@@ -13,7 +13,8 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to @question, notice: 'Votre question a été validé'
+
+      redirect_to root_path, notice: 'Votre question a été validée'
     else
       render 'new'
     end

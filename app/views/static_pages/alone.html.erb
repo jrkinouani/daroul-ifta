@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id="zone_alone">
+      <div>
+        <h3 class="text-capitalize"></h3>
+        <h3 class="text"><%= @questions.content %></h3>
+      </div>
+      <h3>Reponse :</h3>
+      <% @questions.answers.each do | answer | %>
+        <div>
+          <p><%= answer.content  %></p>
+        </div>
+      <% end %>
+      <h3>Partagez sur : </h3>
+      <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>
+    </div>
+  </div>
+</div>

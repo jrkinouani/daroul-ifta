@@ -8,9 +8,10 @@
       <% @hadiths.each  do |hadith|  %>
       <h4><%= hadith.hadith %></h4>
       <% end %>
-      <hr>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
       <% @nisabs.each do |nisab| %>
-        <h2 class="title_show"> <%= nisab.title %></h2>
+        <h2 class="title_show"> <%= nisab.title %></h2><hr>
          <h2 class="title_show"> <%= nisab.mois %> €</h2>
          <h2 class="title_show"> <%= nisab.price_or %> €</h2>
          <h2 class="title_show"> <%= nisab.price_silver %> €</h2>
@@ -26,9 +27,9 @@
         <h3 >Dernières questions posée</h3>
       <hr>
       <% Question.with_validates_answers.last(5).each do |question| %>
-        <h4 class="question_content"><%= link_to "#{question.content}", question_path(question) %></h4>
+        <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
         <% question.validate_answers.each do |answer| %>
-        <h4 class="answer_content"><%= answer.content %></h4>
+        <h4 class="answer_content"><%= answer.content[0..140]%>...</h4>
         <% end %>
         <span class="timestamp">
           Répondu il y a  <%= time_ago_in_words(question.created_at) %>
@@ -38,44 +39,25 @@
     </div>
   </div>
 
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="zone_hadith">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
           <h3 >Liste des catégories</h3>
           <hr>
           <% Category.all.each do |category| %>
            <li class="link-category"><%= link_to category.name,category_path(category: category.name) %></li>
           <% end%>
       </div>
-
+    </div>
   </div>
 
-
-
-
-
-<!--<div class="row" id="home">
-  <div class="col-sm-6 col-sm-offset-3">
-    <div id="imaginary_container">
-      <div class="input-group stylish-input-group">
-        <input type="text" class="form-control"  placeholder="Search" >
-        <span class="input-group-addon">
-          <button type="submit">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    </div>
-	</div>
-</div>-->
 </main>
 <div class="container">
  <div class="container" id="show">
   <div class="row">
     <div class="col-md-8 col-md-8">
-
-
-    <% @Informations.each do |information| %>
-  <h4> <%= information.content %></h4>
-  <% end %>
+      <% @Informations.each do |information| %>
+        <h4> <%= information.content %></h4>
+      <% end %>
     </div>
   </div>
  </div>
