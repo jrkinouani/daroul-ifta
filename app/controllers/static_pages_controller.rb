@@ -11,10 +11,8 @@ class StaticPagesController < ApplicationController
   end
 
   def category
-
-      @category_id = Category.find_by(name: params[:category]).id
-      @questions = Question.with_validates_answers.where(category_id: @category_id).order('created_at DESC')
-
+    @category_id = Category.find_by(name: params[:category]).id
+    @questions = Question.with_validates_answers.where(category_id: @category_id).order('created_at DESC')
   end
 
   def faq
@@ -22,7 +20,7 @@ class StaticPagesController < ApplicationController
   end
 
   def alone
-      @questions = Question.find_by(params[:id])
+    @questions = Question.find_by(id: params[:id])
   end
 
   def search
