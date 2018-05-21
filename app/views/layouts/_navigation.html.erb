@@ -1,5 +1,6 @@
+<div class="container">
 <nav class="navbar navbar-default" role="navigation">
-    	  
+
 
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
@@ -19,7 +20,8 @@
 		      <ul class="nav navbar-nav">
 		        <li><%= link_to 'Accueil', root_path %></li>
 		        <li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
-		        <li><%= link_to 'Faq ?', faq_path%></li>
+		        <li><%= link_to 'Faq ', faq_path%></li>
+            <li><a href="mailto:DaroulIftacontact@gmail.com">Contactez-nous</a></li>
 		      </ul>
 
 		      <ul class="nav navbar-nav navbar-right">
@@ -38,17 +40,18 @@
             <% end  %>
 
             </li>
-		        <li> <%= button_to "Poser une question ?", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
+		        <li> <%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
 		      </ul>
 
 		    </div><!-- /.navbar-collapse -->
 
         <div class="container-fluid">
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <!--<div class="alert alert-warning alert-dismissible fade show" role="alert">
             <%= flash[:success] %>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+          </div>-->
 		  </div><!-- /.container-fluid -->
 		</nav>
+</div>
