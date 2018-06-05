@@ -20,7 +20,8 @@ class StaticPagesController < ApplicationController
   end
 
   def alone
-    @questions = Question.find_by(id: params[:id])
+    @questions = Question.find_by(id: params[:id])  
+    @questions.update(view_count: @questions.view_count + 1)
   end
 
   def search
