@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   end
 
   def add_validation
-    nb_validation = validations.count
+    update(nb_validation: validations.count)
   end
 end

@@ -15,11 +15,14 @@ class Question < ApplicationRecord
   end
 
   def self.with_validates_answers
-    Question.joins(:answers).where("nb_validation >= 3 ")
+    Question.joins(:answers).where('nb_validation >= 3 ')
   end
 
   def self.search(search)
-     Question.with_validates_answers.where("questions.content LIKE ?", "%#{search}%")
+    Question.with_validates_answers.where('questions.content LIKE ?', "%#{ search }%")
+  end
 
+  def similar
+    Question.joins(:keywords).where(keywords: { name: keywords.pluck(:name) })
   end
 end
