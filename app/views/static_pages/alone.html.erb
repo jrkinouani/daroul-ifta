@@ -11,6 +11,24 @@
           <p><%= answer.content  %></p>
         </div>
       <% end %>
+      <% if writer_signed_in? %>
+          <div>
+            <% unless @questions.answers.pluck(:writer_id).include?(current_writer.id) %>
+              <h3>Répondre à la Question  </h3>
+              <%= form_for @answer do | f | %>
+                <%= f.hidden_field :writer_id %>
+                <%= f.hidden_field :question_id %>
+                <div>
+                  <%= f.text_area :content, cols: 75, rows: 5  %>
+                </div>
+                <br>
+                <div>
+                  <%= f.submit "valider" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+      <% end %>
       <h3>Partagez sur : </h3>
       <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>
     </div>

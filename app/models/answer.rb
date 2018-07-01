@@ -1,6 +1,7 @@
 class Answer < ApplicationRecord
   belongs_to :question
   belongs_to :admin
+  belongs_to :writer
   has_many :validations
   before_save :add_validation
 
@@ -9,6 +10,6 @@ class Answer < ApplicationRecord
   end
 
   def add_validation
-    update(nb_validation: validations.count)
+    nb_validation =  validations.count
   end
 end
