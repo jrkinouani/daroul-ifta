@@ -9,7 +9,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="zone_info">
                 <h3 >Dernières questions posée</h3>
                 <hr>
-                <% Question.with_validates_answers.each do |question| %>
+                <% @questions.with_validates_answers.each do |question| %>
                     <h4 class="question_content"><%= link_to "#{question.content}",  alone_path(question)%></h4>
                   <% question.validate_answers.each do |answer| %>
                   <h4 class="answer_content"><%= answer.content %></h4>
