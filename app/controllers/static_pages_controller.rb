@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     @questions = Question.all
     @hadiths = Hadith.all
-    @Informations = Information.all
+    @informations = Information.all
     @nisabs = Nisab.all
     @categorys = Category.all
   end
@@ -16,7 +16,6 @@ class StaticPagesController < ApplicationController
   end
 
   def faq
-
   end
 
   def alone
@@ -32,5 +31,4 @@ class StaticPagesController < ApplicationController
       @questions = Question.all.order('created_at DESC')
     end
   end
-
 end
