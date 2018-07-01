@@ -26,6 +26,9 @@
 		      </ul>
 
 		      <ul class="nav navbar-nav navbar-right">
+            <% if writer_signed_in? %>
+              <li> <%= button_to "Déconnexion", destroy_writer_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
+            <% end %>
 		      	<% if admin_signed_in? %>
 			      	<li> <%= button_to "Déconnexion", destroy_admin_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
 			        <li> <%= button_to "Zone admin", rails_admin_path, class: "btn btn-default navbar-btn btn-lg", :method => :get  %></li>

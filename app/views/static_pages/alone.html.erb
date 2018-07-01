@@ -11,6 +11,24 @@
           <p><%= answer.content  %></p>
         </div>
       <% end %>
+      <% if writer_signed_in? %>
+          <div>
+            <% unless @questions.answers.pluck(:writer_id).include?(current_writer.id) %>
+              <h3>Répondre à la Question  </h3>
+              <%= form_for @answer do | f | %>
+                <%= f.hidden_field :writer_id %>
+                <%= f.hidden_field :question_id %>
+                <div>
+                  <%= f.text_area :content, cols: 75, rows: 5  %>
+                </div>
+                <br>
+                <div>
+                  <%= f.submit "valider" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+      <% end %>
       <h3>Partagez sur : </h3>
       <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>
     </div>
@@ -21,16 +39,12 @@
             <h3 > Questions similaires</h3>
           </div>
             <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
-            <!--<% Category.all.each do |category| %>
-             <li class="link-category"><%= link_to category.name,category_path(category: category.name) %></li>
-             <% end%>-->
-             <% Question.with_validates_answers.last(5).each do |question| %>
+             <% @questions.similar.last(5).each do |question| %>
                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
                  <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
                  <% question.validate_answers.each do |answer| %>
                  <% end %>
                </div>
-               <!-- <hr class="entre"> -->
              <% end %>
         </div>
       </div>

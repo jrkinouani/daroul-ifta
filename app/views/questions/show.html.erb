@@ -43,7 +43,7 @@
           <% next if !answer.display? && !admin_signed_in? %>
           <div>
             <p><%= answer.content  %></p>
-            <p>Par : <%= answer.admin.name %> </p>
+            <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
             <% if admin_signed_in? %>
               <% if answer.admin_id != current_admin.id && !answer.display?%>
                 <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post %>
