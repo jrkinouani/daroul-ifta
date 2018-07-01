@@ -23,6 +23,6 @@ class Question < ApplicationRecord
   end
 
   def similar
-    Question.joins(:keywords).where(keywords: { name: keywords.pluck(:name) })
+    Question.with_validates_answers.joins(:keywords).where(keywords: { name: keywords.pluck(:name) }).where.not(id: id)
   end
 end
