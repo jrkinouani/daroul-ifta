@@ -5,7 +5,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+img#banniere.img-responsive
+{
+  
+  width: 50%;
+}
 .navbar-default {
     background-color: #fff;
     border-color: #fff;
@@ -68,13 +72,14 @@ input.form-control.mr-sm-2
   border: 1px solid #f7f7f7;
   background-color: #f7f7f7;
 }
-#zone_info
+.zone_info
 {
   border-style: solid;
   margin-bottom: 3px;
   border-radius: 3% 3% 3% 3%;
   border: 1px solid #fff;
   background-color: #fff;
+  padding-left: 35px;
 }
 #title_category
 {
