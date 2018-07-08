@@ -40,12 +40,11 @@
           <li>
 						<% if admin_signed_in? %>
 
-						
 						<% else %>
-            <%= form_tag(search_path, method: "get", class:"form-inline" , role: "form") do %>
-              <%= text_field_tag :search, params[:search], class:"form-control mr-sm-2", placeholder:"Recherche par mots"%>
-               <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
-            <% end  %>
+	            <%= form_tag(search_path, method: "get", class:"form-inline" , role: "form") do %>
+	              <%= text_field_tag :search, params[:search], class:"form-control mr-sm-2", placeholder:"Recherche par mots"%>
+	               <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
+	            <% end  %>
 						<% end %>
             </li>
 		        <li> <%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
