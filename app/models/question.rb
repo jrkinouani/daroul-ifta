@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   validates :content, presence: true, length: { maximum: 550 }
   validates :category, presence: true
   validates :email, presence: true
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :question_subcategories, dependent: :destroy
   has_many :subcategories, through: :question_subcategories
   has_many :question_keywords, dependent: :destroy

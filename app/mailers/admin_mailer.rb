@@ -14,6 +14,12 @@ class AdminMailer < ApplicationMailer
     mail(to: @emails, subject: 'Nouvelle validation')
   end
 
+  def new_question(question)
+    @emails = Admin.pluck :email
+    @question = question
+    mail(to: @emails, subject: 'Nouvelle question')
+  end
+
   def new_public_question(question)
     @emails = Admin.pluck :email
     @question = question
