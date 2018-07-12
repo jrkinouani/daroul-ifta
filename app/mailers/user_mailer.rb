@@ -1,8 +1,8 @@
 class UserMailer < ApplicationMailer
-  def new_answer(question, answer, user)
-    @user = user
+  def new_answer(question, answer, email)
+    @email = email
     @question = question
     @answer = answer
-    mail(to: @user.email, subject: 'New answers')
+    mail(to: @email, subject: 'New answers')
   end
 end
