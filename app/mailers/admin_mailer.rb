@@ -4,7 +4,7 @@ class AdminMailer < ApplicationMailer
     @emails = Admin.pluck :email
     @question = question
     @answer = answer
-    mail(to: @emails, subject: 'Nouvelle réponse')
+    mail(to: @emails, subject: 'Nouvelle réponse  ')
   end
 
   def new_validation(answer, admin)

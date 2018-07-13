@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
     @questions = Question.all
     category = Category.where(name: params[:category]).first
     @question = @question.where(category_id: category.id) if category
+    @questions = Question.left_outer_joins(:answers).where(answers:{id: nil})
   end
 
   def new
@@ -73,7 +74,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    return unless admin_signed_in?
+    return unless admin_signed_in? 
     @answer = Answer.new(question_id: @question.id, admin_id: current_admin.id)
     @category = @question.category
     @subcategory = @category.subcategories.last

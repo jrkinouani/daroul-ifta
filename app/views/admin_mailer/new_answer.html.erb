@@ -4,9 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Question : <%= @question.content %></h1>
+    <h1>Salam, </h1> <br>
+    <h3>Une nouvelle question vient d'arriver sur le site <br>
+        Question : <%= @question.content %> <br>
+        Cette question a été posée par <%= @user.email %>
+      </h3>
     <p>
-      new answer : <%= @answer.content %>
+      <h3> Voici la réponse <!--new answer--> : <%= @answer.content %></h3>
     </p>
   </body>
 </html>
