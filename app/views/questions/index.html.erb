@@ -2,9 +2,10 @@
  <div class="row">
   <% @questions.each do |question| %>
     <div class="col-md-8 col-md-8">
-      <%= question.content %>
-      <h2 class="title_show"><%= question.category %></h2>
-      <h2 >par<%= question.email %></h2>
+      <!--<%= question.content %>-->
+      <%= link_to "#{question.content}", alone_path(id: question.id) %>
+      <!--<h2 class="title_show"><%= question.category %></h2>
+      <h2 >par<%= question.email %></h2>-->
     </div>
   <% end %>
  </div>

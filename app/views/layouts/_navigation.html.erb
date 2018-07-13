@@ -28,6 +28,7 @@
 		      <ul class="nav navbar-nav navbar-right">
             <% if writer_signed_in? %>
               <li> <%= button_to "Déconnexion", destroy_writer_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
+							<li><%= link_to "liste de questions non répondu", questions_path %></li>
             <% end %>
 		      	<% if admin_signed_in? %>
 			      	<li> <%= button_to "Déconnexion", destroy_admin_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
@@ -38,16 +39,17 @@
           </li>
           <li>
           <li>
-						<% if admin_signed_in? %>
+							<% if admin_signed_in? or writer_signed_in?%>
 
 						<% else %>
 	            <%= form_tag(search_path, method: "get", class:"form-inline" , role: "form") do %>
 	              <%= text_field_tag :search, params[:search], class:"form-control mr-sm-2", placeholder:"Recherche par mots"%>
 	               <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
 	            <% end  %>
-						<% end %>
+
             </li>
 		        <li> <%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
+						<% end %>
 		      </ul>
 
 		    </div><!-- /.navbar-collapse -->

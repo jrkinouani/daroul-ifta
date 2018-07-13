@@ -4,9 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>New validation by  : <%= @admin.email %></h1>
+    <h1>Salam, </h1> <br>
+    <h3>Nouvelle validation de réponse par <%= @admin.email %>, à la question <br>
+      <%= @question.content %>
+     </h3>
     <p>
-      answer : <%= @answer.content %>
+      Voici la réponse : <%= @answer.content %>
     </p>
   </body>
 </html>
