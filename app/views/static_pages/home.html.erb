@@ -52,7 +52,7 @@
         <h3 >Dernières questions posées</h3>
       <hr>
     </div>
-      <% Question.with_validates_answers.each do |question| %>
+      <% @questions.each do |question| %>
         <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
           <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
           <% question.validate_answers.each do |answer| %>
