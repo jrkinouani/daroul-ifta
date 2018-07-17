@@ -16,6 +16,8 @@ gem 'rails_admin', '~> 1.2'
 gem 'sendgrid-ruby'
 gem 'social-share-button', '~> 0.1.6'
 gem 'font-awesome-sass', '~> 4.7.0'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 
 group :development, :test do
