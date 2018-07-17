@@ -15,7 +15,7 @@ class AdminMailer < ApplicationMailer
   end
 
   def new_question(question)
-    @emails = Admin.pluck :email
+    @emails = Admin.pluck(:email) + Writer.pluck(:email)
     @question = question
     mail(to: @emails, subject: 'Nouvelle question')
   end
