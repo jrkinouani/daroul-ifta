@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      AdminMailer.new_question(@question).deliver_later
+      AdminMailer.new_question(@question).deliver_now
       redirect_to root_path, notice: 'Votre question a été validée'
     else
       render 'new'

@@ -1,5 +1,4 @@
 class AdminMailer < ApplicationMailer
-
   def new_answer(question, answer)
     @emails = Admin.pluck :email
     @question = question
