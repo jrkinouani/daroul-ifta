@@ -42,11 +42,14 @@
         <div>
           <% next if !answer.display? && !admin_signed_in? %>
           <div>
+            <div class="delimiter-with-title">
+              <hr># <%= answer.id %><hr>
+            </div>
             <p><%= answer.content  %></p>
             <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
             <% if admin_signed_in? %>
-              <% if answer.admin_id != current_admin.id && !answer.display?%>
-                <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post %>
+              <% if answer.admin_id != current_admin.id && !answer.display? && !answer.validations.pluck(:admin_id).include?(current_admin.id)%>
+                <%= link_to 'Valider la reponse', validations_path(answer_id: answer.id, admin_id: current_admin.id), method: :post, class: 'btn btn-success' %>
               <% end %>
               <em>Nombre de validation <%= answer.validations.count %> </em>
             <% end %>
