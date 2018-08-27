@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @questions = Question.with_validates_answers.paginate(:page => params[:page], :per_page => 2)
+    @questions = Question.with_validates_answers.paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
     @hadiths = Hadith.all
     @informations = Information.all
     @nisabs = Nisab.all
