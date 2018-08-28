@@ -28,7 +28,8 @@
 		      <ul class="nav navbar-nav navbar-right">
             <% if writer_signed_in? %>
               <li> <%= button_to "Déconnexion", destroy_writer_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
-							<li><%= link_to "liste de questions non répondu", questions_path %></li>
+							<li><%= button_to "Liste de questions non répondus", questions_path, class: "btn btn-info navbar-btn btn-lg" , :method => :get %></li>
+							<!--<li><%= link_to "liste de questions non répondu", questions_path %></li>-->
             <% end %>
 		      	<% if admin_signed_in? %>
 			      	<li> <%= button_to "Déconnexion", destroy_admin_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>

@@ -1,11 +1,12 @@
 <div class="container" id="show">
- <div class="row">
-  <% @questions.each do |question| %>
-    <div class="col-md-8 col-md-8">
-      <!--<%= question.content %>-->
-      <%= link_to "#{question.content}", alone_path(id: question.id) %>
-      <!--<h2 class="title_show"><%= question.category %></h2>
-      <h2 >par<%= question.email %></h2>-->
+ <div class="row" id="content_quest_non_lus">
+   <h3>Listes de questions non répondus </h3>
+  <%  @questions.each do |question| %>
+    <div class="col-md-8">
+      <h3><%= link_to "#{question.content}", alone_path(id: question.id) %> <br>
+        <span  class="timestamp">
+          Posé il y a  <%= time_ago_in_words(question.created_at) %>
+        </span></h3>
     </div>
   <% end %>
  </div>
