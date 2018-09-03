@@ -1,37 +1,39 @@
 <div class="container">
   <div class="row" id="content_alone">
-    <div class="col-sm-6  col-md-6 col-md-offset-2" id="zone_alone">
+    <div class="col-sm-6  col-md-8" id="zone_alone">
       <div>
+          <h4 class="question_title">Question posée</h4>
         <h3 class="text-capitalize"></h3>
-        <h3 class="text"><%= @questions.content %></h3>
-        
+        <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= @questions.content %> ?</h3>
+
       </div>
+      <!--zone qui affiche la réponse -->
       <h3>Reponse :</h3>
       <% @questions.answers.each do | answer | %>
         <div>
-          <p><%= answer.content  %></p>
+          <p><%= raw answer.content  %></p>
         </div>
       <% end %>
+      <!-- fin -->
       <% if writer_signed_in? %>
-          <div>
+          <div >
             <% unless @questions.answers.pluck(:writer_id).include?(current_writer.id) %>
-              <h3>Répondre à la Question  </h3>
               <%= form_for @answer do | f | %>
                 <%= f.hidden_field :writer_id %>
                 <%= f.hidden_field :question_id %>
-                <div>
-                  <%= f.text_area :content, cols: 75, rows: 5  %>
+                <div >
+                  <%= f.cktext_area :content ,ckeditor: {toolbar: 'mini'}   %>
                 </div>
                 <br>
                 <div>
-                  <%= f.submit "valider" %>
+                  <%= f.submit "valider votre réponse" , class:"btn btn-primary btn-lg" %>
                 </div>
               <% end %>
             <% end %>
           </div>
       <% end %>
-      <h3>Partagez sur : </h3>
-      <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>
+      <!--<h3>Partagez sur : </h3>
+      <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>-->
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

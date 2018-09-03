@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require social-share-button
+//= require ckeditor/init
 //= require_tree .
 
 function remove_fields(link) {
