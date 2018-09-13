@@ -32,8 +32,11 @@
             <% end %>
           </div>
       <% end %>
-      <!--<h3>Partagez sur : </h3>
-      <%= social_share_button_tag(@questions.content, 'data-twitter-title' => 'TheTitleForTwitter') %>-->
+      <h3>Partagez sur : </h3>
+
+      <%= social_share_button_tag(@questions.content) %>
+      <a href="whatsapp://send?text=<%= request.original_url %>">Share on WhatsApp</a>
+
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

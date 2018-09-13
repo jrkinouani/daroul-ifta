@@ -30,5 +30,8 @@ Rails.application.routes.draw do
   get '/category' => 'static_pages#category'
   get '/faq' => 'static_pages#faq'
   get '/search' => 'static_pages#search'
+
+  match '/404' => 'errors#error404', via: [:get, :post, :patch, :delete]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
