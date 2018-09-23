@@ -75,10 +75,18 @@
             <h3 > Catégories</h3>
           </div>
             <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
-              <div class="dropdown">
-
+              <div>
                 <% Category.all.each do |category| %>
-                 <li class="link-category"><%= link_to category.name,category_path(category: category.name) %></li>
+                  <div class="dropdown display-block" >
+                   <li class="link-category dropdown-toggle" type="button" id="<%= "dropdownMenuButton_#{category.id}" %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= link_to category.name,category_path(category: category.name) %>
+                    </li>
+                    <div class="dropdown-menu" aria-labelledby="<%= "dropdownMenuButton_#{category.id}" %>">
+                      <% category.subcategories.each do | subcategory | %>
+                        <%= link_to subcategory.name, category_path(subcategory: subcategory.id), class: 'dropdown-item' %>
+                      <% end %>
+                    </div>
+                  </div>
               <% end%>
         </div>
         </div>

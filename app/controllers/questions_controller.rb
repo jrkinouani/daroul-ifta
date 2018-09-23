@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     category = Category.where(name: params[:category]).first
-    @question = @question.where(category_id: category.id) if category
+    @question = @question.where(category_id: category.id) if category # should be remove need to check where it call
     @questions = Question.left_outer_joins(:answers).where(answers:{id: nil})
   end
 

@@ -11,8 +11,11 @@ class StaticPagesController < ApplicationController
   end
 
   def category
-    @category_id = Category.find_by(name: params[:category]).id
-    @questions = Question.with_validates_answers.where(category_id: @category_id).order('created_at DESC')
+    if params[:category]
+      @category_id = Category.find_by(name: params[:category]).id
+      @questions = Question.with_validates_answers.where(category_id: @category_id).order('created_at DESC')
+    end
+    @questions = Question.with_validates_answers.joins(:subcategories).where(subcategories: { id: params[:subcategory] }) if params[:subcategory]
   end
 
   def faq

@@ -13,7 +13,7 @@
               <%= f.hidden_field :admin_id %>
               <%= f.hidden_field :question_id %>
               <div>
-                <%= f.text_area :content, cols: 100, rows: 5  %>
+                <%= f.cktext_area :content ,ckeditor: {toolbar: 'mini'}   %>
               </div>
               <br>
               <div>
@@ -45,7 +45,7 @@
             <div class="delimiter-with-title">
               <hr># <%= answer.id %><hr>
             </div>
-            <p><%= answer.content  %></p>
+            <p><%= raw answer.content  %></p>
             <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
             <% if admin_signed_in? %>
               <% if answer.admin_id != current_admin.id && !answer.display? && !answer.validations.pluck(:admin_id).include?(current_admin.id)%>
