@@ -27,10 +27,10 @@
         <h3 class="title_show"> <%= nisab.title %></h3>
       </div>
          <h3 class="title_show"> Nissab de <%= nisab.mois %> €</h3>
-         <h3 class="title_show"> Nissab de l'or <%= nisab.price_or %> €</h2>
-         <h3 class="title_show">  Nissab de l'argent <%= nisab.price_silver %> €</h2>
-         <h3 class="title_show"> Zakat fatimi <%= nisab.zakat_fatimi %> €</h3>
-         <h3 class="title_show"> Zakat fidiyah <%= nisab.zakat_fidiyah %> €</h3>
+         <h3 class="title_show"> Prix du gramme d'or <%= nisab.price_or %> €</h2>
+         <h3 class="title_show"> Prix du gramme d'argent <%= nisab.price_silver %> €</h2>
+         <h3 class="title_show"> Mahr fâtimi <%= nisab.zakat_fatimi %> €</h3>
+         <h3 class="title_show"> Fidiyah <%= nisab.zakat_fidiyah %> €</h3>
          <h3 class="title_show"> Zakat nisab <%= nisab.nisab_zakat %> €</h3>
       <% end %>
     </div>
@@ -60,6 +60,7 @@
           <% end %>
           <span class="timestamp">
             Répondu il y a  <%= time_ago_in_words(question.created_at) %>
+
           </span>
         </div>
 
