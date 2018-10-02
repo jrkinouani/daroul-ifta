@@ -1,0 +1,2 @@
+class Zakatnissab < ApplicationRecord
+end

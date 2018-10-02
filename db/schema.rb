@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628140602) do
+ActiveRecord::Schema.define(version: 20181002095932) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -87,6 +87,45 @@ ActiveRecord::Schema.define(version: 20180628140602) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "nissabs", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.integer "prix_or"
+    t.integer "prix_argent"
+    t.integer "mahr_minimum"
+    t.integer "mahr_fatimi"
+    t.integer "fidyah"
+    t.integer "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nissabzakates", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.float "prix_or"
+    t.float "prix_argent"
+    t.float "mahr_minimum"
+    t.float "mahr_fatimi"
+    t.float "fidyah"
+    t.float "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nissabzakats", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.float "prix_or"
+    t.float "prix_argent"
+    t.float "mahr_minimum"
+    t.float "mahr_fatimi"
+    t.float "fidyah"
+    t.float "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "question_keywords", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -144,6 +183,21 @@ ActiveRecord::Schema.define(version: 20180628140602) do
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_writers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_writers_on_reset_password_token", unique: true
+  end
+
+  create_table "zakatnissabs", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.decimal "prix_or"
+    t.decimal "prix_argent"
+    t.decimal "mahr_minimum"
+    t.decimal "mahr_fatimi"
+    t.decimal "fidyah"
+    t.decimal "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "moisfrancais"
+    t.integer "anneefr"
   end
 
 end

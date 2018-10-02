@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     @questions = Question.with_validates_answers.paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
     @hadiths = Hadith.all
     @informations = Information.all
-    @nisabs = Nisab.all
+    @zakatnissabs = Zakatnissab.all
     @categorys = Category.all
   end
 

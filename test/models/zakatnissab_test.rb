@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NisabTest < ActiveSupport::TestCase
+class ZakatnissabTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

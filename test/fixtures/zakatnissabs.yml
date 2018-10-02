@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mois: MyString
+  an: 1
+  prix_or: 9.99
+  prix_argent: 9.99
+  mahr_minimum: 9.99
+  mahr_fatimi: 9.99
+  fidyah: 9.99
+  nissab_zakate: 9.99
+
+two:
+  mois: MyString
+  an: 1
+  prix_or: 9.99
+  prix_argent: 9.99
+  mahr_minimum: 9.99
+  mahr_fatimi: 9.99
+  fidyah: 9.99
+  nissab_zakate: 9.99
