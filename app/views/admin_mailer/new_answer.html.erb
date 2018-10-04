@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Salam, </h1> <br>
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
+    <h4>Assalamou aleykoum wa rahmatoullahi wa barakatoullahi</h4>
+    <br>
     <h3>Une nouvelle question vient d'arriver sur le site <br>
         Question : <%= @question.content %> <br>
         Cette question a été posée par <%= @user.email %>
-      </h3>
-    <p>
+    </h3>
+    <br>
       <h3> Voici la réponse  : <%= @answer.content %></h3>
-    </p>
-  </body>
-</html>
+
+  </div>
+</div>
+</div>
