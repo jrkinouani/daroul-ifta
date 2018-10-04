@@ -6,6 +6,12 @@ class AnswersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def show
+    @answer = Answer.find(params[:id])
+    
+
+  end
+
   private
 
   def answer_params
