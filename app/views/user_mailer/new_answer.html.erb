@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Question : <%= @question.content %></h1>
-    <p>
-      new answer : <%= @answer.content %>
-    </p>
-  </body>
-</html>
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
+    <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4>
+    <br> <br>
+    <h4>Vous avez posé une question : </h4>
+    <h4> <%= @question.content %></h4>
+     <br><br>
+    <h4>Voici la réponse à votre réponse posé :</h4>
+    <h4><%= @answer.content %></h4>
+  </div>
+ </div>
+</div>
