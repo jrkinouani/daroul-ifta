@@ -86,9 +86,13 @@
                       <%= link_to category.name,category_path(category: category.name) %>
                     </li>
                     <div class="dropdown-menu" aria-labelledby="<%= "dropdownMenuButton_#{category.id}" %>">
-                      <% category.subcategories.each do | subcategory | %>
-                        <%= link_to subcategory.name, category_path(subcategory: subcategory.id), class: 'dropdown-item' %>
-                      <% end %>
+                      <% if category.subcategories.empty?  %>
+                        <%= link_to category.name,category_path(category: category.name) %>
+                      <% else %>
+                        <% category.subcategories.each do | subcategory | %>
+                          <%= link_to subcategory.name, category_path(subcategory: subcategory.id), class: 'dropdown-item' %>
+                        <% end %>
+                      <% end%>
                     </div>
                   </div>
               <% end%>
