@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'devise'
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'rails_admin', '~> 1.2'
 gem 'sendgrid-ruby'
 gem 'social-share-button', '~> 0.1.6'
