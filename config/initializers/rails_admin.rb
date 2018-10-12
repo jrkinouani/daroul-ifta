@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  I18n.default_locale = "fr"
 
   ### Popular gems integration
 
