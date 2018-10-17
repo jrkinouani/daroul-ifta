@@ -1,16 +1,25 @@
-<div class="container">
- <div class="row">
-  <div class="col-md-8">
-    <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4>
-    <br> <br>
-    <h4>Vous avez posé une question : </h4>
-    <h4> <%= @question.content %></h4>
-     <br><br>
-    <h4>Voici la réponse à votre réponse posé :</h4>
-    <h4><%= @answer.content %></h4>
-    <h4>Lien vers votre question
-      <%= link_to "voir ma réponse", answer_path(@answer) %>
-    </h4>
-  </div>
- </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta name="language" content="fr-FR" />
+   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+ </head>
+ <body>
+    <div class="container">
+     <div class="row">
+      <div class="col-md-8">
+        <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4>
+        <br> <br>
+        <h4>Vous avez posé une question : </h4>
+        <h4> <%= @question.content %></h4>
+         <br><br>
+        <h4>Voici la réponse à votre réponse posé :</h4>
+        <h4><%= @answer.content %></h4>
+        <h4>Lien vers votre question
+          <%= link_to "voir ma réponse", answer_path(@answer) %>
+        </h4>
+      </div>
+     </div>
+    </div>
+  </body>
+</html>
