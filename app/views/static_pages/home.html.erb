@@ -59,7 +59,7 @@
         <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
           <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
           <% question.validate_answers.each do |answer| %>
-          <h4 class="answer_content"><%= answer.content[0..140]%>...<%= link_to "voir plus",  alone_path(id: question.id) %></h4>
+          <h4 class="answer_content"><%= raw answer.content[0..140]%>...<%= link_to "voir plus",  alone_path(id: question.id) %></h4>
           <% end %>
           <span class="timestamp">
             Répondu il y a  <%= time_ago_in_words(question.created_at) %>

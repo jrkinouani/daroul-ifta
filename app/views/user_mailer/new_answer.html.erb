@@ -14,7 +14,7 @@
         <h4> <%= @question.content %></h4>
          <br><br>
         <h4>Voici la réponse à votre réponse posé :</h4>
-        <h4><%= @answer.content %></h4>
+        <p><%= raw @answer.content  %></p>
         <h4>Lien vers votre question
           <%= link_to "voir ma réponse", answer_path(@answer) %>
         </h4>

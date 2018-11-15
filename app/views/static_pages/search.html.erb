@@ -12,7 +12,7 @@
                 <% @questions.with_validates_answers.each do |question| %>
                     <h4 class="question_content"><%= link_to "#{question.content}",  alone_path(question)%></h4>
                   <% question.validate_answers.each do |answer| %>
-                  <h4 class="answer_content"><%= answer.content %></h4>
+                    <p class="answer_content"><%= raw answer.content %></p>
                   <% end %>
                 <% end %>
               </div>
