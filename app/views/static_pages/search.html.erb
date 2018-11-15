@@ -6,7 +6,7 @@
             <h3 >Désolé il n'y pas ce mot "<%= params[:search] %>"</br> </h3>
             <% else %>
               <h3 class="title_reunion">
-                Voici toutes les questions(<%= question.validate_answers.count %>)  et réponses avec le mots recherché :"<%= params[:search] %>"
+                Voici toutes les questions(<%= @questions.with_validates_answers.count %>)  et réponses avec le mots recherché :"<%= params[:search] %>"
               </h3>
               <div class="col-lg-offset-2  col-md-offset-2 col-sm-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12" id="zone_info">
                 <% @questions.with_validates_answers.each do |question| %>
