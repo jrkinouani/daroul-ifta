@@ -11,9 +11,8 @@
       <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4>
       <br> <br>
       <h4>Une nouvelle réponse :</h4>
-      <p><%= @answer.content.html_safe %></p>
-      <p>Lien vers votre question </p>
-      <%= link_to "voir ma réponse", question_url(@answer.question) %>
+      <p><%= raw @answer.content %></p>
+      <%= link_to "Lien vers votre question", question_url(@answer.question) %>
       </div>
      </div>
     </div>
