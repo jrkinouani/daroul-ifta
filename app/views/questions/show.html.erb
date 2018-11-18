@@ -26,7 +26,7 @@
       <div class="col-md-4">
         <div>
           <div class="forms">
-            <%= render 'category_form'  %>
+            <%= render partial: 'category_form', locals: {question: @question}  %>
           </div>
         </div>
         <div id="subcategories">

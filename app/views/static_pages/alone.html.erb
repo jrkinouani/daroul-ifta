@@ -1,22 +1,21 @@
 <div class="container">
- <div class="row" id="content_alone">
+  <div class="row" id="content_alone">
     <div class="col-sm-6  col-md-8" id="zone_alone">
       <div>
-       <h4 class="question_title">Question posée</h4>
-       <h3 class="text-capitalize"></h3>
-       <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= @questions.content %> ?</h3>
+        <h4 class="question_title">Question posée</h4>
+        <h3 class="text-capitalize"></h3>
+        <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= @question.content %> ?</h3>
       </div>
-      <!--zone qui affiche la réponse -->
       <h3>Reponse :</h3>
-      <% @questions.answers.each do | answer | %>
+      <% @question.answers.each do | answer | %>
         <div>
           <p><%= raw answer.content  %></p>
         </div>
       <% end %>
-      <!-- fin -->
       <% if writer_signed_in? %>
+        <div class="col-md-8">
           <div >
-            <% unless @questions.answers.pluck(:writer_id).include?(current_writer.id) %>
+            <% unless @question.answers.pluck(:writer_id).include?(current_writer.id) %>
               <%= form_for @answer do | f | %>
                 <%= f.hidden_field :writer_id %>
                 <%= f.hidden_field :question_id %>
@@ -30,29 +29,44 @@
               <% end %>
             <% end %>
           </div>
+        </div>
       <% end %>
       <h3>Partagez sur : </h3>
-      <%= social_share_button_tag(@questions.content) %>
+      <%= social_share_button_tag(@question.content) %>
       <div class="visible-xs">
         <a  href="whatsapp://send?text=<%= request.original_url %>"><i class="fab fa-whatsapp-square"></i></a>
       </div>
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <% if writer_signed_in? %>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 side-item">
+          <div class="col-md-12 list-elem-side-menu">
+            <div class="">
+              <div class="forms">
+                <%= render partial: 'questions/category_form', locals: {question: @question}  %>
+              </div>
+            </div>
+            <div id="subcategories">
+              <%= render partial: 'questions/subcategories', locals: {question: @question} %>
+            </div>
+          </div>
+        </div>
+        <% end %>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
-      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
-        <h3 > Questions similaires</h3>
-      </div>
-      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
-        <% @questions.similar.last(5).each do |question| %>
-         <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
-         <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
-          <% question.validate_answers.each do |answer| %>
-            <p><%= raw answer.content  %></p>
+        <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
+          <h3 > Questions similaires</h3>
+        </div>
+        <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
+          <% @question.similar.last(5).each do |question| %>
+            <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
+              <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
+              <% question.validate_answers.each do |answer| %>
+                <p><%= raw answer.content  %></p>
+              <% end %>
+            </div>
           <% end %>
-         </div>
-         <% end %>
-       </div>
+        </div>
       </div>
     </div>
   </div>

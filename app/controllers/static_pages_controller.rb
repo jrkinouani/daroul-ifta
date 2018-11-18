@@ -22,9 +22,12 @@ class StaticPagesController < ApplicationController
   end
 
   def alone
-    @questions = Question.find_by(id: params[:id])
-    @answer = Answer.new(question_id: @questions.id, writer_id: current_writer.id) if writer_signed_in?
-    @questions.update(view_count: @questions.view_count + 1)
+    @question = Question.find_by(id: params[:id])
+    @category = @question.category
+    @subcategory = @category.subcategories.last
+    @question.keywords.build if @question.keywords.empty?
+    @answer = Answer.new(question_id: @question.id, writer_id: current_writer.id) if writer_signed_in?
+    @question.update(view_count: @question.view_count + 1)
   end
 
   def search

@@ -7,7 +7,7 @@
     <%= link_to 'Ajouter', "#", onclick: "add_keyword(\"#edit_question_#{@question.id}\", \"#{add_subcategories_question_path(@question)}\");return false" %>
     <div>
       <% f.fields_for :keywords, @question.keywords  do | keyword_field | %>
-        <%= render partial: 'keyword_fields', locals: { f: keyword_field } %>
+        <%= render partial: 'questions/keyword_fields', locals: { f: keyword_field } %>
       <% end %>
       <p><%= link_to_add_fields "Ajouter un mot clé", f, :keywords, true %></p>
     </div>

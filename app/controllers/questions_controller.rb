@@ -85,12 +85,14 @@ class QuestionsController < ApplicationController
 
   def delete_subcategories
     @question.subcategories.delete(params[:subcategory_id])
-    redirect_to @question
+    redirect_to @question if admin_signed_in?
+    redirect_to alone_path(@question)
   end
 
   def delete_keywords
     @question.keywords.delete(params[:keyword_id])
-    redirect_to @question
+    redirect_to @question if admin_signed_in?
+    redirect_to alone_path(@question)
   end
 
   private
