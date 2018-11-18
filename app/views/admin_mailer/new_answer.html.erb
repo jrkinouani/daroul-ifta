@@ -13,7 +13,7 @@
       <h4>Une nouvelle réponse :</h4>
       <p><%= @answer.content.html_safe %></p>
       <p>Lien vers votre question </p>
-      <%= link_to "voir ma réponse", answer_path(@answer) %>
+      <%= link_to "voir ma réponse", answer_url(@answer) %>
       </div>
      </div>
     </div>

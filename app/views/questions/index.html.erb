@@ -3,7 +3,7 @@
    <h3>Listes de questions  </h3>
   <%  @questions.each do |question| %>
     <div class="col-md-8">
-      <p><%= link_to "#{question.content}", alone_path(id: question.id) %> <br>
+      <p><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id)) %> <br>
         <span  class="timestamp">
           Posé il y a  <%= time_ago_in_words(question.created_at) %>
         </span>
