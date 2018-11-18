@@ -1,116 +1,99 @@
 <main class="bd-masthead" id="content" role="main">
-<div class="container-fluid">
-  <div class="row" id="home">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <%= flash[:success] %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
-      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
-        <h3 >Hadith du jour</h3>
+  <div class="container-fluid">
+    <div class="row" id="home">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= flash[:success] %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
-        <% @hadiths.each  do |hadith|  %>
-        <h4><%= hadith.hadith %></h4>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
+        <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
+          <h3 >Hadith du jour</h3>
+        </div>
+        <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
+          <% @hadiths.each  do |hadith|  %>
+          <h4><%= hadith.hadith %></h4>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
+        <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
+        <% @zakatnissabs.each do |zakatnissab| %>
+        <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
+          <h3 class="title_show"> <%= zakatnissab.mois.capitalize %> <%= zakatnissab.an %>  </h3>
+          <h3 class="title_show"> <%= zakatnissab.moisfrancais.capitalize %> <%= zakatnissab.anneefr %>  </h3>
+        </div>
+           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Nissab Zakate :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.nissab_zakate.to_f %> €</h3></div>
+           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Prix du gr d'or :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab">  <%= zakatnissab.prix_or.to_f %> €</h3></div>
+           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Prix du gr d'argent :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.prix_argent.to_f %> €</h3></div>
+           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Mahr_fatimi :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.mahr_fatimi.to_f %> €</h3></div>
+           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Mahr_minimum :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.mahr_minimum.to_f %> €</h3></div>
+           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Fidyah :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.fidyah.to_f %> €</h3></div>
+
+
         <% end %>
       </div>
     </div>
-
-
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
-      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
-      <% @zakatnissabs.each do |zakatnissab| %>
-      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
-        <h3 class="title_show"> <%= zakatnissab.mois.capitalize %> <%= zakatnissab.an %>  </h3>
-        <h3 class="title_show"> <%= zakatnissab.moisfrancais.capitalize %> <%= zakatnissab.anneefr %>  </h3>
-      </div>
-         <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Nissab Zakate :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.nissab_zakate.to_f %> €</h3></div>
-         <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Prix du gr d'or :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab">  <%= zakatnissab.prix_or.to_f %> €</h3></div>
-         <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Prix du gr d'argent :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.prix_argent.to_f %> €</h3></div>
-         <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Mahr_fatimi :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.mahr_fatimi.to_f %> €</h3></div>
-         <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Mahr_minimum :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.mahr_minimum.to_f %> €</h3></div>
-         <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Fidyah :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.fidyah.to_f %> €</h3></div>
-
-
-      <% end %>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs" id="info">
+      <p>
+        Le Centre a pour objectif d’apporter des réponses simples et concises
+         à vos interrogations sur l’Islam en général et sur le droit musulman en particulier.
+        Vous y trouverez des avis juridiques mais aussi des conseils pratiques
+        et des orientations éthiques en rapport avec l’ensemble des aspects
+         de la vie du croyant et de la croyante, que ce soit dans sa relation
+          avec Son Créateur que dans son rapport avec ceux et celles qui l’entourent.
+      </p>
     </div>
-  </div>
-  </div>
-
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-  <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs" id="info">
-    <p>
-      Le Centre a pour objectif d’apporter des réponses simples et concises
-       à vos interrogations sur l’Islam en général et sur le droit musulman en particulier.
-      Vous y trouverez des avis juridiques mais aussi des conseils pratiques
-      et des orientations éthiques en rapport avec l’ensemble des aspects
-       de la vie du croyant et de la croyante, que ce soit dans sa relation
-        avec Son Créateur que dans son rapport avec ceux et celles qui l’entourent.
-    </p>
-  </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
         <h3 >Dernières questions posées</h3>
       <hr>
     </div>
-      <% @questions.each do |question| %>
-        <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
-          <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
-          <% question.validate_answers.each do |answer| %>
+    <% @questions.each do |question| %>
+      <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
+        <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
+        <% question.validate_answers.each do |answer| %>
           <h4 class="answer_content"><%= raw answer.content[0..140] %>...<%= link_to "voir plus",  alone_path(id: question.id) %></h4>
-          <% end %>
+          <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
           <span class="timestamp">
-            Répondu il y a  <%= time_ago_in_words(question.created_at) %>
-
+            Répondu il y a  <%= time_ago_in_words(answer.created_at) %>
           </span>
-        </div>
-
-        <!-- <hr class="entre"> -->
-      <% end %>
-    <!-- </div> -->
+          <hr>
+        <% end %>
+      </div>
+    <% end %>
     <%= will_paginate @questions, renderer: BootstrapPagination::Rails, previous_label: "Récent", next_label: "Ancien", inner_window: 1, outer_window: 0 %>
   </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
-          <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
-            <h3 > Catégories</h3>
-          </div>
-            <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
-              <div>
-                <% Category.all.each do |category| %>
-                  <div class="dropdown display-block" >
-                   <li class="link-category dropdown-toggle" type="button" id="<%= "dropdownMenuButton_#{category.id}" %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <%= link_to category.name,category_path(category: category.name) %>
-                    </li>
-                    <div class="dropdown-menu" aria-labelledby="<%= "dropdownMenuButton_#{category.id}" %>">
-                      <% if category.subcategories.empty?  %>
-                        <%= link_to category.name,category_path(category: category.name) %>
-                      <% else %>
-                        <% category.subcategories.each do | subcategory | %>
-                          <%= link_to subcategory.name, category_path(subcategory: subcategory.id), class: 'dropdown-item' %>
-                        <% end %>
-                      <% end%>
-                    </div>
-                  </div>
-              <% end%>
-        </div>
+  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="zone_hadith">
+      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="title_category">
+        <h3 > Catégories</h3>
+      </div>
+      <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
+        <div>
+          <% Category.all.each do |category| %>
+            <div class="dropdown display-block" >
+              <li class="link-category dropdown-toggle" type="button" id="<%= "dropdownMenuButton_#{category.id}" %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= link_to category.name,category_path(category: category.name) %>
+              </li>
+              <div class="dropdown-menu" aria-labelledby="<%= "dropdownMenuButton_#{category.id}" %>">
+                <% if category.subcategories.empty?  %>
+                  <%= link_to category.name,category_path(category: category.name) %>
+                <% else %>
+                  <% category.subcategories.each do | subcategory | %>
+                    <%= link_to subcategory.name, category_path(subcategory: subcategory.id), class: 'dropdown-item' %>
+                  <% end %>
+                <% end%>
+              </div>
+            </div>
+          <% end%>
         </div>
       </div>
     </div>
   </div>
-</div>
 </main>
-<!--<div class="container">
- <div class="container" id="show">
-  <div class="row">
-    <div class="col-md-8 col-md-8">
-      <%# @informations.each do |information| %>
-        <h4> <%# information.content %></h4>
-      <%# end %>
-    </div>
-  </div>
- </div>
-</div>-->

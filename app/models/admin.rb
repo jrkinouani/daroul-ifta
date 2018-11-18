@@ -4,4 +4,8 @@ class Admin < ApplicationRecord
   devise :database_authenticatable,
          :rememberable, :trackable, :validatable
          #:registerable, :recoverable
+
+  def self.notificable
+    where(notification: true)
+  end
 end

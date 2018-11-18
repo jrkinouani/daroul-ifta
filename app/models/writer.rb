@@ -7,4 +7,7 @@ class Writer < ApplicationRecord
 
   has_many :answers
 
+  def self.notificable
+    where(notification: true)
+  end
 end

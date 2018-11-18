@@ -289,6 +289,18 @@ a.link_footer
 {
     margin-right: 10px;
 }
+a.navbar-btn {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    margin-right: 10px;
+}
+a.btn-info {
+    color: white !important;
+}
+a:hover.btn-info {
+    background-color: #47afcc !important;
+    color: white !important;
+}
 h4.answer_content
 {
     font-weight: 300;

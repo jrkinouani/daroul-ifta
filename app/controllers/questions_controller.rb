@@ -1,10 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :update, :delete_subcategories, :delete_keywords, :add_subcategories, :add_keywords]
   def index
-    @questions = Question.all
     category = Category.where(name: params[:category]).first
     @question = @question.where(category_id: category.id) if category # should be remove need to check where it call
     @questions = Question.left_outer_joins(:answers).where(answers:{id: nil})
+    if params[:pending_validation]
+      @questions = Question.joins(:answers).where("answers.nb_validation < 3")
+    end
   end
 
   def new

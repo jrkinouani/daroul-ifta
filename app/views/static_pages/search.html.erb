@@ -10,7 +10,7 @@
               </h3>
               <div class="col-lg-offset-2  col-md-offset-2 col-sm-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12" id="zone_info">
                 <% @questions.with_validates_answers.each do |question| %>
-                    <h4 class="question_content"><%= link_to "#{question.content}",  alone_path(question)%></h4>
+                    <p class="question_content"><%= link_to "#{question.content}",  alone_path(question)%></p>
                   <% question.validate_answers.each do |answer| %>
                     <p class="answer_content"><%= raw answer.content[0..140] %></p>
                   <% end %>

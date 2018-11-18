@@ -1,6 +1,6 @@
 class AdminMailer < ApplicationMailer
   def new_answer(question, answer)
-    @emails = Admin.pluck :email
+    @emails = Admin.notificable.pluck :email
     @question = question
     @answer = answer
     @user = answer.admin || answer.writer
@@ -8,7 +8,7 @@ class AdminMailer < ApplicationMailer
   end
 
   def new_validation(answer, admin)
-    @emails = Admin.pluck :email
+    @emails = Admin.notificable.pluck :email
     @answer = answer
     @question = answer.question
     @admin = admin
@@ -16,13 +16,13 @@ class AdminMailer < ApplicationMailer
   end
 
   def new_question(question)
-    @emails = Admin.pluck(:email) + Writer.pluck(:email)
+    @emails = Admin.notificable.pluck(:email) + Writer.notificable.pluck(:email)
     @question = question
     mail(to: @emails, subject: 'Nouvelle question')
   end
 
   def new_public_question(question)
-    @emails = Admin.pluck :email
+    @emails = Admin.notificable.pluck :email
     @question = question
     mail(to: @emails, subject: 'Nouvelle question')
   end
