@@ -5,6 +5,9 @@ class Admin < ApplicationRecord
          :rememberable, :trackable, :validatable
          #:registerable, :recoverable
 
+  has_many :validations,  dependent: :destroy
+
+
   def self.notificable
     where(notification: true)
   end
