@@ -12,6 +12,8 @@
       <br> <br>
       <h4>Une nouvelle réponse :</h4>
       <p><%= @answer.content.html_safe %></p>
+      <p>Lien vers votre question </p>
+      <%= link_to "voir ma réponse", answer_path(@answer) %>
       </div>
      </div>
     </div>
