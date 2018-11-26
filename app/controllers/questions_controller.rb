@@ -76,7 +76,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    return unless admin_signed_in? 
+    return unless admin_signed_in?
     @answer = Answer.new(question_id: @question.id, admin_id: current_admin.id)
     @category = @question.category
     @subcategory = @category.subcategories.last

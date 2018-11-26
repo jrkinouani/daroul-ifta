@@ -27,12 +27,12 @@
           <h3 class="title_show"> <%= zakatnissab.mois.capitalize %> <%= zakatnissab.an %>  </h3>
           <h3 class="title_show"> <%= zakatnissab.moisfrancais.capitalize %> <%= zakatnissab.anneefr %>  </h3>
         </div>
-           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Nissab Zakate :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.nissab_zakate.to_f %> €</h3></div>
-           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Prix du gr d'or :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab">  <%= zakatnissab.prix_or.to_f %> €</h3></div>
-           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Prix du gr d'argent :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.prix_argent.to_f %> €</h3></div>
-           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Mahr_fatimi :</h3></div><div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.mahr_fatimi.to_f %> €</h3></div>
-           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Mahr_minimum :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.mahr_minimum.to_f %> €</h3></div>
-           <div class="col-md-8 col-xs-8"><h3 class="title_nissab"> Fidyah :</h3></div> <div class="col-md-4 col-xs-4"><h3 class="nissab"><%= zakatnissab.fidyah.to_f %> €</h3></div>
+           <div class="col-md-12 col-xs-8"><h3 class="title_nissab"> Nissab Zakate :<br> <br><%= zakatnissab.nissab_zakate.to_f %> €</h3></div>
+           <div class="col-md-12 col-xs-8"><h3 class="title_nissab"> Prix du gr d'or : <br> <br><%= zakatnissab.prix_or.to_f %> €</h3></div>
+           <div class="col-md-12 col-xs-8"><h3 class="title_nissab"> Prix du gr d'argent : <br><br><%= zakatnissab.prix_argent.to_f %> €</h3></div>
+           <div class="col-md-12 col-xs-8"><h3 class="title_nissab"> Mahr_fatimi :<br><br><%= zakatnissab.mahr_fatimi.to_f %> €</h3></div>
+           <div class="col-md-12 col-xs-8"><h3 class="title_nissab"> Mahr_minimum :<br><br><%= zakatnissab.mahr_minimum.to_f %> €</h3></div>
+           <div class="col-md-12 col-xs-8"><h3 class="title_nissab"> Fidyah :<br><br><%= zakatnissab.fidyah.to_f %> €</h3></div>
 
 
         <% end %>
