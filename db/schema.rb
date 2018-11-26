@@ -88,6 +88,45 @@ ActiveRecord::Schema.define(version: 20181116191215) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "nissabs", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.integer "prix_or"
+    t.integer "prix_argent"
+    t.integer "mahr_minimum"
+    t.integer "mahr_fatimi"
+    t.integer "fidyah"
+    t.integer "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nissabzakates", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.float "prix_or"
+    t.float "prix_argent"
+    t.float "mahr_minimum"
+    t.float "mahr_fatimi"
+    t.float "fidyah"
+    t.float "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nissabzakats", force: :cascade do |t|
+    t.string "mois"
+    t.integer "an"
+    t.float "prix_or"
+    t.float "prix_argent"
+    t.float "mahr_minimum"
+    t.float "mahr_fatimi"
+    t.float "fidyah"
+    t.float "nissab_zakate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "question_keywords", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
