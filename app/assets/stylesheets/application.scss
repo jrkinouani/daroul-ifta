@@ -131,8 +131,18 @@ input.form-control.mr-sm-2
 }
 
 /** List Item Hover Styles **/
-
+/*page question new*/
+h3.new_question
+{
+    font-size: 18px;
+    font-weight: bold;
+}
+/* fin  */
 /*page home */
+.display-block {
+    display: block;
+    text-align: left;
+}
 .bd-masthead
 {
     padding-bottom: 40px;
@@ -370,9 +380,9 @@ h1.construction
 /*page alone */
 h4.question_title
 {
-    font-weight: lighter;
+    font-weight: 600 ;
     color: #999;
-    font-size: 13px;
+    font-size: 18px;
 }
 #error
 {

@@ -2,15 +2,17 @@
   <div class="row" id="content_alone">
     <div class="col-sm-6  col-md-8" id="zone_alone">
       <div>
-        <h4 class="question_title">Question posée</h4>
+        <h4 class="question_title">Question posée :</h4>
         <h3 class="text-capitalize"></h3>
         <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= @question.content %> ?</h3>
       </div>
-      <h3>Reponse :</h3>
+      <br>
+      <h4 class="question_title">Réponse :</h4>
       <% @question.answers.each do | answer | %>
         <div>
-          <p><%= raw answer.content  %></p>
+            <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= raw answer.content  %></h3>
         </div>
+        <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
       <% end %>
       <% if writer_signed_in? %>
         <div class="col-md-8">
@@ -60,7 +62,7 @@
         <div class="col-lg-12 col-md_12 col-sm-12 col-xs-12" id="list_category">
           <% @question.similar.last(5).each do |question| %>
             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  zone_info">
-              <h4 class="question_content"><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
+              <h4 class="question_content"><%= raw answer.content[0..140] %><%= link_to "#{question.content}", (admin_signed_in? ? question_path(question) : alone_path(id: question.id))%></h4>
               <!--<% question.validate_answers.each do |answer| %>
                 <p><%= raw answer.content  %></p>
               <% end %>-->

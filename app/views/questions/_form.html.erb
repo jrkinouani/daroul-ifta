@@ -3,28 +3,26 @@
     <p>
       <h3>Comment poser une question ?</h3>
       <h4>Avant de poser votre question, veuillez vérifier si elle n'a pas déjà été traitée dans une de nos rubriques qui sont à droite de la page d'accueil ou en utilisant le champ de recherche en haut de page. <br> <br>
-      Merci d'être patient, nous traitons vos demandes de manière collégiale pour vouis apporter des éléments de réponses dans les plus brefs délais. <br> <br>
-      Les réponses apportées par le centre de recherches sont conformes à l'école de jurisprudence Hanafite. Si vous souhaitez l'avisselon d'autre écolejuridique (madh-hab), veuillez le préciser: nous nous éfforcerons
+      Merci d'être patient, nous traitons vos demandes de manière collégiale pour vous apporter des éléments de réponses dans les plus brefs délais. <br> <br>
+      Les réponses apportées par le centre de recherches sont conformes à l'école de jurisprudence Hanafite. Si vous souhaitez l'avis selon d'autre école juridique (madh-hab), veuillez le préciser: nous nous éfforcerons
       de vous apporter des éléments de réponses. <br> <br>
       "Privilégiez des questions courtes et précises" <br> <br>
       Notre Daroul Ifta n'a pas pour but de débattre des questions existentielles ou philosophiques et encore moins de faire des études de textes et des commentaires d'extraits d'articles etc.
-      des réponses simples et rapides à vos questionnaires d'ordres juridiques et des conseils dans le quotidien du musulman et de la musulmane.
-
-     </h4>
+      Des réponses simples et rapides à vos questionnaires d'ordres juridiques et des conseils dans le quotidien du musulman et de la musulmane.</h4>
     </p>
   </div>
   <div class="col-lg-6  col-md-6 col-sm-3 col-xs-12" id="zone_question" >
   <%= form_for @question  do |f| %>
    <div class="field">
-    <label><h3>Poser votre question</h3></label><br>
+    <label><h3 class="new_question" >Poser votre question</h3></label><br>
       <%= f.text_area :content ,  :class => "form-control" , placeholder: "Quels sont les conditions de la prière ?"%>
    </div>
    <div class="field">
-    <label><h3>Choisissez une catégorie</h3></label><br>
+    <label><h3 class="new_question">Choisissez une catégorie</h3></label><br>
       <%= f.select :category_id, Category.all.pluck(:name, :id) ,:class => "form-control", id:"categorie", prompt:"Choisissez une catégorie" %>
    </div>
    <div class="field">
-    <label><h3>Indiquez votre email pour valider votre question</h3></label><br />
+    <label><h3 class="new_question">Indiquez votre email pour valider votre question</h3></label><br />
       <%= f.text_field :email,  :class => "form-control",placeholder: "mohammed@gmail.com"%>
    </div>
       <br /><br />
