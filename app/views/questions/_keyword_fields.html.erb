@@ -1,6 +1,6 @@
 <div class="fields keyword_fields">
   <%= f.label 'Choisissez un mot clé' %>
-  <%= f.select :id, options_from_collection_for_select((@subcategory&.keywords || []), 'id', 'name', @subcategory.keywords.first&.id), {include_blank: true }%>
+  <%= f.select :id, options_from_collection_for_select((@subcategory&.keywords || []), 'id', 'name', (@subcategory&.keywords&.first&.id || 0)), {include_blank: true }%>
   <%= f.hidden_field(:_destroy) %>
   <%# link_to_remove_fields "remove", f %>
   <%= link_to 'Ajouter', "#", onclick: "add_keyword(\"#edit_question_#{@question.id}\", \"#{add_keywords_question_path(@question)}\");return false" %>
