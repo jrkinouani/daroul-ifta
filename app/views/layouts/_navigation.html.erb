@@ -20,22 +20,20 @@
 		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
 		      <ul class="nav navbar-nav">
 		        <li><%= link_to 'Accueil', root_path %></li>
-		        <li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
-		        <li><%= link_to 'Faq ', faq_path%></li>
+		        <!--<li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
+		        <li><%= link_to 'Faq ', faq_path%></li>-->
             <li><a href="mailto:DaroulIftacontact@gmail.com">Contactez-nous</a></li>
-		      </ul>
 
-		      <ul class="nav navbar-nav navbar-right">
             <% if writer_signed_in? %>
-              <li> <%= button_to "Déconnexion", destroy_writer_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
+              <li> <%= link_to "Déconnexion", destroy_writer_session_path, class: "", :method => :delete  %>  </li>
             <% end %>
 		      	<% if admin_signed_in? %>
-			      	<li> <%= button_to "Déconnexion", destroy_admin_session_path, class: "btn btn-danger navbar-btn btn-lg", :method => :delete  %>  </li>
-			        <li> <%= button_to "Zone admin", rails_admin_path, class: "btn btn-default navbar-btn btn-lg", :method => :get  %></li>
+			      	<li> <%= link_to "Déconnexion", destroy_admin_session_path, class: "", :method => :delete  %>  </li>
+			        <li> <%= link_to "Zone admin", rails_admin_path, class: "", :method => :get  %></li>
 		        <% end %>
 					  <% if admin_signed_in? or writer_signed_in?%>
-              <li><%= link_to "Liste de questions non répondus", questions_path, class: "btn btn-info navbar-btn btn-lg" , :method => :get %></li>
-              <li><%= link_to "En Attente de validation", questions_path(pending_validation: true), class: "btn btn-info navbar-btn btn-lg" , :method => :get %></li>
+              <li><%= link_to "Liste de questions non répondus", questions_path, class: "" , :method => :get %></li>
+              <li><%= link_to "En Attente de validation", questions_path(pending_validation: true), class: "" , :method => :get %></li>
 					  <% else %>
               <li>
   	            <%= form_tag(search_path, method: "get", class:"form-inline" , role: "form") do %>

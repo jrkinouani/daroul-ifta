@@ -4,13 +4,13 @@
       <div>
         <h4 class="question_title">Question posée :</h4>
         <h3 class="text-capitalize"></h3>
-        <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= @question.content %> ?</h3>
+        <h3 class="question.content.alone" style="color:black; font-size:18px;color: #337ab7;font-weight:normal;"><%= @question.content %> ?</h3>
       </div>
       <br>
       <h4 class="question_title">Réponse :</h4>
       <% @question.answers.each do | answer | %>
         <div>
-            <h3 class="question.content.alone" style="color:black; font-size:18px;"><%= raw answer.content  %></h3>
+            <p><%= raw answer.content  %></p>
         </div>
         <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
       <% end %>
