@@ -16,10 +16,10 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
 		      <ul class="nav navbar-nav">
-		        <li><%= link_to 'Accueil', root_path, class:"link_nav" %></li>
+		        <li class="nav"><%= link_to 'Accueil', root_path, class:"link_nav" %></li>
 		        <!--<li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
 		        <li><%= link_to 'Faq ', faq_path%></li>-->
-            <li><a href="mailto:riyadh.ouloum@gmail.com" , class="link_nav">Contactez-nous</a></li>
+            <li class="nav"><a href="mailto:riyadh.ouloum@gmail.com" , class="link_nav">Contactez-nous</a></li>
 
             <% if writer_signed_in? %>
               <li> <%= link_to "Déconnexion", destroy_writer_session_path, class: "", :method => :delete  %>  </li>
