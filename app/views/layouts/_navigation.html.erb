@@ -1,3 +1,54 @@
+
+<div class="container-fluid">
+    <!-- Second navbar for categories -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+					<%= link_to (image_tag("/banniere.png" , class:"navbar-brand", id:"banniere")),root_path %>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+						<li class="nav"><%= link_to 'Accueil', root_path, class:"link_nav" %></li>
+						<!--<li><%= link_to 'Qui sommes-nous ?', apropos_path%></li>
+						<li><%= link_to 'Faq ', faq_path%></li>-->
+						<li class="nav"><a href="mailto:riyadh.ouloum@gmail.com" , class="link_nav">Contactez-nous</a></li>
+
+						<% if writer_signed_in? %>
+							<li> <%= link_to "Déconnexion", destroy_writer_session_path, class: "", :method => :delete  %>  </li>
+						<% end %>
+						<% if admin_signed_in? %>
+							<li> <%= link_to "Déconnexion", destroy_admin_session_path, class: "", :method => :delete  %>  </li>
+							<li> <%= link_to "Zone admin", rails_admin_path, class: "", :method => :get  %></li>
+						<% end %>
+						<% if admin_signed_in? or writer_signed_in?%>
+							<li><%= link_to "Liste de questions non répondus", questions_path, class: "" , :method => :get %></li>
+							<li><%= link_to "En Attente de validation", questions_path(pending_validation: true), class: "" , :method => :get %></li>
+						<% else %>
+							<li>
+								<%= form_tag(search_path, method: "get", class:"form-inline" , role: "form") do %>
+									<%= text_field_tag :search, params[:search], class:"form-control mr-sm-2", placeholder:"Recherche par mots"%>
+									 <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fas fa-search" ></i></button>
+								<% end  %>
+							</li>
+							<li><%= button_to "Poser une question", new_question_path, class: "btn btn-primary navbar-btn btn-lg", :method => :get  %></li>
+						<% end %>
+
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
 <div class="container">
 <nav class="navbar navbar-default" role="navigation">
 
