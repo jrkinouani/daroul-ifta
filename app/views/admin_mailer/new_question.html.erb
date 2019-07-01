@@ -9,9 +9,9 @@
    <div class="row">
     <div class="col-md-8">
       <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4>
-      <br> <br>
       <h4>Une nouvelle question vient d'arriver sur le site.</h4>
-      <h4> <%= @question.content %></h4>
+      <h4 class="question_title">Question posée numéro  <%= @question.id %> :</h4>
+      <!--<h4> <%= @question.content %></h4>-->
       <%= link_to "Lien vers la question", question_url(@question) %>
     </div>
    </div>

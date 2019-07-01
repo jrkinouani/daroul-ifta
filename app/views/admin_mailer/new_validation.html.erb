@@ -10,6 +10,7 @@
         <div class="col-md-8">
           <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4> <br>
           <h3>Nouvelle validation de réponse par <%= @admin.email %>, à la question <br>
+            <h4 class="question_title">Question posée numéro  <%= @question.id %> :</h4>
             <%= @question.content %>
           </h3>
           <p>
@@ -21,4 +22,3 @@
     </div>
   </body>
 </html>
-
