@@ -10,10 +10,10 @@
       <div class="col-md-8">
         <h4>Assalamou aleykoum wa rahmatoullahi wa barakattoullahi</h4>
         <br> <br>
-        <h4>Vous avez posé une question : </h4>
+        <h4>Vous avez posé la question suivante : </h4>
         <h4> <%= @question.content %></h4>
          <br><br>
-        <h4>Voici la réponse à votre réponse posé :</h4>
+        <h4>Voici la réponses :</h4>
         <p><%= raw @answer.content  %></p>
         <%= link_to "Lien vers votre question", question_url(@question) %>
       </div>
