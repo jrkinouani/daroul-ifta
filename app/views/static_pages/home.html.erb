@@ -61,8 +61,14 @@
           <h4 class="answer_content"><%= raw answer.content[0..140] %>...<%= link_to "voir plus",  alone_path(id: question.id) %></h4>
           <p>Par : <%= answer&.admin&.name || answer&.writer&.name %> </p>
           <span class="timestamp">
-            Répondu il y a  <%= time_ago_in_words(answer.created_at) %>
+            Répondu il y a  <%= answer.created_at.strftime( "%d/%m/%Y")  %>
+            <!--Répondu il y a  <%= time_ago_in_words(answer.created_at) %>-->
+
           </span>
+          <div class="">
+            <%= image_tag(question.category.image_url, width: "100%" , class: "image_card") if question.category.image_url %>
+
+          </div>
           <hr>
         <% end %>
       </div>

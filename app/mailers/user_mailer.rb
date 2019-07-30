@@ -4,5 +4,4 @@ class UserMailer < ApplicationMailer
     @question = question
     @answer = answer
     mail(to: @email, subject: 'New answers')
-  end
 end

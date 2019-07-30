@@ -19,6 +19,8 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'ckeditor'
+gem 'carrierwave'
+gem "fog-aws"
 
 
 group :development, :test do

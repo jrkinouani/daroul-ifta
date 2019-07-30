@@ -5,6 +5,7 @@ class AdminMailer < ApplicationMailer
     @answer = answer
     @user = answer.admin || answer.writer
     mail(to: @emails, subject: 'Nouvelle réponse  ')
+
   end
 
   def new_validation(answer, admin)
