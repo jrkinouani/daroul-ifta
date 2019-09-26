@@ -1,6 +1,12 @@
 <div class="container">
   <div class="row" >
     <div class="col-md-12"style="margin-top:20px;">
+      <div class="col-md-offset-3 col-md-6">
+      <div class="text-center">
+        <h4 class="question_title">Question posée numéro  <%= @question.id %> :</h4>
+        <h3 class="question.content.alone" style="color:black; font-size:28px;color: #337ab7;font-weight:normal; margin-bottom:30px;"><%= @question.content %> </h3>
+      </div>
+      </div>
       <%= image_tag(@question.category.image_url, width: "100%" , class: "image_card") if @question.category.image_url %>
     </div>
   </div>
