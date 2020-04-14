@@ -10,9 +10,9 @@
               <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12" id="zone_info">
                 <% @questions.with_validates_answers.each do |question| %>
                     <p class="question_content"><%= link_to "#{question.content}",  alone_path(question)%></p>
-                  <% question.validate_answers.each do |answer| %>
+                  <!--<% question.validate_answers.each do |answer| %>
                     <p class="answer_content"><%= raw answer.content[0..140] %></p>
-                  <% end %>
+                  <% end %>-->
                 <% end %>
               </div>
           <% end %>
